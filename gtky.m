@@ -3,8 +3,8 @@ disp("1. Please answer questions in only English, French, or Spanish")
 disp("2. Please answer the question as straightforwardly as possible")
 disp("3. Please adhere to the grammar rules of the language") 
 disp("4. Please answer in full sentences")
-%answer = input(prompt, s)
-%asking question = prompt('insert q here')
+%answer --> input(prompt, s)
+%asking a question-->prompt('insert q here')
 
 %create a function so that the code can run "if-else" statements 
 function getting_to_know_you = detect_language(answer)
@@ -20,7 +20,7 @@ ntilde = "ñ";
 accented_i = 'í';
 inverted_exclam = '!';
 inverted_question = '¿';
-Spanish_letter_accents= [eaigu, aaigu, uaigu, oaigu, ntilde, accented_i]
+Spanish_letter_accents= [eaigu, aaigu, uaigu, oaigu, ntilde, accented_i];
  
 %Q1
 Q1= prompt('What is your name?');
@@ -41,6 +41,7 @@ for q1= 1:length(spanish_phrases_Q1)
     end 
 end 
 
+%Q1 French Detection 
 
 %Q1 English detection 
 
@@ -60,9 +61,9 @@ end
 count=0; 
 for i= 1:length(answer)
     %check if answer is an accent mark
-   
+
 if exist("ntilde")
-    detect_language= 'Spanish' 
+    detect_language= 'Spanish'; 
 elseif ismember(answer(i),Spanish_letter_accents)
     count=count+1; 
     %incorporate counting of accent marks. If # of accent marks is > the
