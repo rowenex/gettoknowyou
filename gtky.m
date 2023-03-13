@@ -5,7 +5,7 @@ disp("3. Please adhere to the grammar rules of the language")
 disp("4. Please answer in full sentences")
 %answer = input("What is your name?" )
 
-
+%Listed Variables; Accent marks + Grammar Unique to specific language(s)
 egrave = "è";
 eaigu = "é";
 agrave = "à";
@@ -14,5 +14,11 @@ acircumflex = "â";
 uaigu = "ú";
 oaigu = "ó"; 
 ntilde = "ñ";
+accented_i = 'í';
+inverted_exclam = '!';
+inverted_question = '¿';
+
+
+%SPANISH CODE 
 
 
