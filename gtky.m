@@ -8,6 +8,7 @@ disp("4. Please answer in full sentences, such as 'My favorite song is...'")
 
 %create a function so that the code can run "if-else" statements 
 function getting_to_know_you = detect_language(answer)
+
 %Listed Variables; Accent marks + Grammar Unique to specific language(s)
 egrave = "è";
 eaigu = "é";
@@ -28,19 +29,18 @@ English_indications = [english_the,english_I_space,english_I_ns];
  
 %Q1
 Q1= prompt('What is your name?');
-fprintf(Q1) %NEED HELP FIGURING OUT HOW TO DISPLAY question to the user??? (i think fprintf?)
-answer= input(prompt,'s');
+fprintf(Q1) 
+answer_1= input(prompt,'s');
 
 %Q1 Spanish detection 
 spanish_phrases_Q1= ['llamo', 'soy', 'estoy']; 
-answer = false; 
+answer_1_spanish = false; 
 for q1= 1:length(spanish_phrases_Q1)
     %find spanish phrases specific for q1 in the answer
-    if ~isempty(strfind(lower(answer), phrases{q1}))%where did you initialize phrases?
-        %is strfind case sensitive?
-        answer = true;
+    if ~isempty(strfind(lower(answer_1), spanish_phrases_Q1(q1))
+        answer_1_spanish = true;
         break
-        if answer==true
+        if answer_1_spanish==true
             detect_language='Spanish';
         end 
     end 
@@ -54,9 +54,55 @@ answer = false;
 
 %Q1 no specified language detection 
 
+%Q1--> Q2 language changer for Q2
+if detect_language= 'Spanish'
+    Q2= prompt('¿Cuál es tu color favorito?');
+elseif detect_language= 'French'
+    Q2= 
+elseif detect_language= 'English' | detect_language= 'Not specified'
+    Q2= prompt('What''s your favorite color?');
+end
+fprint(Q2)
+answer_2=input(prompt, 's'); 
 
-%Q2
+%Q2 Spanish Detection (phrases+ accent markings)
+spanish_phrases_Q2= ['mi', 'es', 'favorito', 'favorita']; 
+answer_2_spanish = false; 
+for q1= 1:length(spanish_phrases_Q2)
+    %find spanish phrases specific for q1 in the answer
+    if ~isempty(strfind(lower(answer_2), spanish_phrases_Q2(Q2))
+        answer_2_spanish = true;
+        break
+    elseif exist("ntilde")
+      answer_2_spanish= true; 
+      break 
+    elseif 
+    for i= 1:length(answer)
+            ismember(answer_2(i),Spanish_letter_accents)
+      count=count+1; 
+    end 
+        if count<= %need a statement that makes sure that the accent number doesn't exceed the possible number accents for spanish words/phrases.
+            answer_2_spanish=true;
+            break 
+        end 
+    end
+end 
 
+if answer_2_spanish==true
+    detect_language='Spanish';
+end
+
+
+%Q2--> Q3 language changer for Q3
+if detect_language= 'Spanish'
+    Q3= prompt('¿De dónde eres?');
+elseif detect_language= 'French'
+    Q3= 
+elseif detect_language= 'English' | detect_language= 'Not specified'
+    Q3= 
+end
+fprint(Q3)
+answer_3=input(prompt, 's'); 
 
 
 
@@ -77,5 +123,6 @@ for i= 1:length(answer)
          %number of words in the answer str, cannot be Spanish. 
     end 
 end
-end 
+
+end
 
