@@ -12,20 +12,30 @@ function getting_to_know_you = detect_language(user_answer)
 %Listed Variables; Accent marks + Grammar Unique to specific language(s)
 egrave = "è";
 eaigu = "é";
+ecircumflex = "ê";
 agrave = "à";
-aaigu = "á";  
+aaigu = "á"; 
 acircumflex = "â"; 
+ugrave = "ù";
 uaigu = "ú";
+ucircumflex = "û";
+cedilla = "ç"; 
 oaigu = "ó"; 
+ocircumflex = "ô"; 
 ntilde = "ñ";
 accented_i = 'í';
+icircumflex = "î"; 
 inverted_exclam = '!';
 inverted_question = '¿';
 english_the = 'the';
 english_I_space = " I ";
 english_I_ns = "I ";
+french_ui = "ui";
+french_j = "j'";
+french_m = "m'";
 Spanish_letter_accents= [eaigu, aaigu, uaigu, oaigu, ntilde, accented_i];
 English_indications = [english_the,english_I_space,english_I_ns];
+French_indicators = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j];
 
 %Questions 
 Q1= 'What is your name?';
@@ -72,7 +82,8 @@ for i= 1:10
     user_answer= input(prompt,'s'); %insert their answer + input the answer into the program 
     
     %Spanish detection 
-    spanish_phrases= ['llamo', 'soy', 'estoy', 'mi', 'es', 'favorito', 'favorita','gusta', 'dia', 'festivo', 'superpoder', 'comida','libros', 'películas', 'más', 'Prefiero', 'voy', 'genero','música']; 
+    spanish_phrases= ['llamo', 'soy', 'estoy', 'mi', 'es', 'favorito', 'favorita','gusta', 'dia', 'festivo', 'superpoder', 'comida','libros', 'películas', 'más', 'Prefiero', 'voy', 'genero','música'];
+    french_phrases = ['les', 'mon']
     if any(strfind(lower(user_answer), spanish_phrases)) || any(ismember(lower(user_answer), Spanish_letter_accents))
         detect_language = 'Spanish';
         if detect_language== 'Spanish' 
@@ -98,7 +109,31 @@ for i= 1:10
                 'Lo siento, no tengo más preguntas en español.\n';
             end
     elseif 
-        %INSERT FRENCH DETECTION +language change HERE
+        if any(strfind(lower(user_answer), french_phrases)) || any(ismember(lower(user_answer), French_indicators))
+        detect_language = 'French';
+        if detect_language== 'French' 
+            if i==2
+                fprintf(q2f);
+            elseif i==3
+                fprintf(q3f);
+            elseif i==4
+                fprintf(q4f);
+            elseif i==5
+                fprintf(q5f);
+            elseif i==6
+                fprintf(q6f)
+            elseif i==7
+                fprintf(q7f)
+            elseif i==8
+                fprintf(q8f)
+            elseif i==9
+                fprintf(q9f)
+            elseif i==10
+                fprintf(q10f)
+            else
+                '';
+            end
+        end
     elseif
         english_phrases_Q1 = ['My', 'name'];
         %INSERT ENGLISH DETECTION AND NO SPECIFIED LANGUAGE DETECTION +language change HERE
