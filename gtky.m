@@ -28,7 +28,7 @@ Spanish_letter_accents= [eaigu, aaigu, uaigu, oaigu, ntilde, accented_i];
 English_indications = [english_the,english_I_space,english_I_ns];
 
 %Questions 
-Q1= 'What is your name?';
+Q1= 'What is your name?'; %begin in english no matter what
 Q2= ['q2e', 'q2s', 'q2f'];
     q2e= 'What is your favorite color?';
     q2s= '¿Cuál es tu color favorito?';
@@ -100,27 +100,55 @@ for i= 1:10
     elseif 
         %INSERT FRENCH DETECTION +language change HERE
     elseif
-        english_phrases_Q1 = ['My', 'name'];
+        english_phrases_all = ['My', 'name', 'favorite',' is ', ' from', 'it ', 'superpower', 'animal', 'holiday','food','prefer','books','movies','like','coffee','music '];
         %INSERT ENGLISH DETECTION AND NO SPECIFIED LANGUAGE DETECTION +language change HERE
+        if any(strfind(lower(user_answer), english_phrases_all)) || any(ismember(lower(user_answer), English_indications))
+        detect_language = 'English';
+        if detect_language== 'English' 
+            if i==2
+                fprintf(q2e);
+            elseif i==3
+                fprintf(q3e);
+            elseif i==4
+                fprintf(q4e);
+            elseif i==5
+                fprintf(q5e);
+            elseif i==6
+                fprintf(q6e)
+            elseif i==7
+                fprintf(q7e)
+            elseif i==8
+                fprintf(q8e)
+            elseif i==9
+                fprintf(q9e)
+            elseif i==10
+                fprintf(q10e)
+            else
+                "I'm sorry, there's no more English questions!\n";
+            end
     end 
 end 
-end
+ end
+    end
+end %ends i = 1:10
+end %ends the function
+
            
 
 %May possibly be useful for the spanish detection portion of the code; do
 %not worry about this part for now. IGNORE!
-        elseif 
-        count=0;
-        for l= 1:length(user_answer(i))
-                ismember(user_answer(i),Spanish_letter_accents)
-          count=count+1; 
-        end 
-            if count<= %need a statement that makes sure that the accent number doesn't exceed the possible number accents for spanish words/phrases.
-                user_answer_spanish=true;
-                break 
-            end 
-        end
-    end 
+       % elseif 
+      %  count=0;
+      %  for l= 1:length(user_answer(i))
+      %          ismember(user_answer(i),Spanish_letter_accents)
+      %    count=count+1; 
+      %  end 
+       %     if count<= %need a statement that makes sure that the accent number doesn't exceed the possible number accents for spanish words/phrases.
+      %          user_answer_spanish=true;
+       %         break 
+       %     end 
+       % end
+  %  end 
 
 
 

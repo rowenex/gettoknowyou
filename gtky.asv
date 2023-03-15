@@ -28,7 +28,7 @@ Spanish_letter_accents= [eaigu, aaigu, uaigu, oaigu, ntilde, accented_i];
 English_indications = [english_the,english_I_space,english_I_ns];
 
 %Questions 
-Q1= 'What is your name?';
+Q1= 'What is your name?'; %begin in english no matter what
 Q2= ['q2e', 'q2s', 'q2f'];
     q2e= 'What is your favorite color?';
     q2s= '¿Cuál es tu color favorito?';
@@ -60,11 +60,11 @@ Q8= ['q8e', 'q8s', 'q8f'];
 Q9= ['q9e', 'q9s', 'q9f'];
     q9e= 'Do you prefer coffee or tea? What is your favorite coffee shop?';
     q9s= '¿Prefieres café o té? ¿Cuál es tu cafetería favorita?';
-    q9f='vous préférez le café ou le thé ? quel est ton café préféré ?';
+    q9f='Vous préférez le café ou le thé? Quel est ton café préféré?';
 Q10= ['q10e', 'q10s', 'q10f'];
     q10e= 'What type of music are you into?';
     q10s= '¿Qué tipo de música te gusta?' ; 
-    q10f='';
+    q10f='Quels types de musique aimez-vous?';
 
 %Starting the "for loop" in order to run program for 10 questions ; %intialization condition; first Question presented 
 for i= 1:10
@@ -100,7 +100,7 @@ for i= 1:10
     elseif 
         %INSERT FRENCH DETECTION +language change HERE
     elseif
-        english_phrases_Q1 = ['My', 'name'];
+        english_phrases_all = ['My', 'name', 'favorite',' is ', ' from', 'it ', 'superpower', 'animal', 'holiday','food','prefer','books','movies','like','coffee','music '];
         %INSERT ENGLISH DETECTION AND NO SPECIFIED LANGUAGE DETECTION +language change HERE
     end 
 end 
