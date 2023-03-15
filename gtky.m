@@ -74,7 +74,7 @@ Q10= ['q10e', 'q10s', 'q10f'];
 %Starting the "for loop" in order to run program for 10 questions ; %intialization condition; first Question presented 
 for i= 1:10
     prompt = ['Q%d: ', i]; %first thing is to print the question to the user; specific to the Q number
-    user_answer= input(prompt,'s'); %insert their answer + input the answer into the program 
+    user_answer= input(prompt, "s"); %insert their answer + input the answer into the program 
     
     %Spanish detection 
     spanish_phrases= ['llamo', 'soy', 'estoy', 'mi', 'es', 'favorito', 'favorita','gusta', 'dia', 'festivo', 'superpoder', 'comida','libros', 'películas', 'más', 'Prefiero', 'voy', 'genero','música'];
