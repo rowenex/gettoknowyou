@@ -1,8 +1,7 @@
 disp("Welcome to Get to Know You!")
-disp("1. Please answer questions in only English, French, or Spanish")
-disp("2. Please answer the question as straightforwardly as possible")
-disp("3. Please adhere to the grammar rules of the language") 
-disp("4. Please answer in full sentences, such as 'My favorite song is...'")
+disp("1. Please answer the question as straightforwardly as possible")
+disp("2. Please adhere to the grammar rules of the language") 
+disp("3. Please answer in full sentences, such as 'My favorite song is...'")
 %answer --> input(prompt, s)
 %asking a question-->prompt('insert q here')
 
@@ -131,6 +130,7 @@ for i= 1:10
             elseif i==10
                 fprintf(q10f)
             else
+<<<<<<< Updated upstream
                 '';
             end%ends if i==2 for french
         end%ends detect_language = french
@@ -138,6 +138,15 @@ for i= 1:10
     elseif any(strfind(lower(user_answer), english_phrases_all)) || any(ismember(lower(user_answer), English_indications))
        english_phrases_all = ['My', 'name', 'favorite',' is ', ' from', 'it ', 'superpower', 'animal', 'holiday','food','prefer','books','movies','like','coffee','music '];
        %english detection
+=======
+                'Nous sommes désolées, il n''y a plus de questions.';
+            end
+        end
+    elseif
+        english_phrases_all = ['My', 'name', 'favorite',' is ', ' from', 'it ', 'superpower', 'animal', 'holiday','food','prefer','books','movies','like','coffee','music '];
+        %INSERT ENGLISH DETECTION AND NO SPECIFIED LANGUAGE DETECTION +language change HERE
+        if any(strfind(lower(user_answer), english_phrases_all)) || any(ismember(lower(user_answer), English_indications))
+>>>>>>> Stashed changes
         detect_language = 'English';
         if detect_language== 'English' 
             if i==2
