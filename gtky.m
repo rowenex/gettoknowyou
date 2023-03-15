@@ -107,7 +107,8 @@ for i= 1:10
                 fprintf(q10s)
             else
                 'Lo siento, no tengo más preguntas en español.\n';
-            end
+            end %ends if i==2 for spanish
+        end %ends detect_language = spanish
     elseif 
         if any(strfind(lower(user_answer), french_phrases)) || any(ismember(lower(user_answer), French_indicators))
         detect_language = 'French';
@@ -132,8 +133,9 @@ for i= 1:10
                 fprintf(q10f)
             else
                 '';
-            end
-        end
+            end%ends if i==2 for french
+        end%ends detect_language = french
+
     elseif
         english_phrases_all = ['My', 'name', 'favorite',' is ', ' from', 'it ', 'superpower', 'animal', 'holiday','food','prefer','books','movies','like','coffee','music '];
         %INSERT ENGLISH DETECTION AND NO SPECIFIED LANGUAGE DETECTION +language change HERE
@@ -160,9 +162,10 @@ for i= 1:10
                 fprintf(q10e)
             else
                 "I'm sorry, there's no more English questions!\n";
-            end
-    end 
-end 
+            end%ends i ==2 english
+        end %ends detect_language english
+        else %else statement for no specified language detection
+            if 
  end
     end
 end %ends i = 1:10
