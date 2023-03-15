@@ -83,10 +83,10 @@ for i= 1:10
     
     %Spanish detection 
     spanish_phrases= ['llamo', 'soy', 'estoy', 'mi', 'es', 'favorito', 'favorita','gusta', 'dia', 'festivo', 'superpoder', 'comida','libros', 'películas', 'más', 'Prefiero', 'voy', 'genero','música'];
-    french_phrases = ['les', 'mon']
+    french_phrases = ['les', 'mon'];
     if any(strfind(lower(user_answer), spanish_phrases)) || any(ismember(lower(user_answer), Spanish_letter_accents))
         detect_language = 'Spanish';
-        if detect_language== 'Spanish' 
+        if detect_language == 'Spanish' 
             if i==2
                 fprintf(q2s);
             elseif i==3
@@ -109,8 +109,7 @@ for i= 1:10
                 'Lo siento, no tengo más preguntas en español.\n';
             end %ends if i==2 for spanish
         end %ends detect_language = spanish
-    elseif 
-        if any(strfind(lower(user_answer), french_phrases)) || any(ismember(lower(user_answer), French_indicators))
+    elseif any(strfind(lower(user_answer), french_phrases)) || any(ismember(lower(user_answer), French_indicators))
         detect_language = 'French';
         if detect_language== 'French' 
             if i==2
@@ -136,10 +135,9 @@ for i= 1:10
             end%ends if i==2 for french
         end%ends detect_language = french
 
-    elseif
-        english_phrases_all = ['My', 'name', 'favorite',' is ', ' from', 'it ', 'superpower', 'animal', 'holiday','food','prefer','books','movies','like','coffee','music '];
-        %INSERT ENGLISH DETECTION AND NO SPECIFIED LANGUAGE DETECTION +language change HERE
-        if any(strfind(lower(user_answer), english_phrases_all)) || any(ismember(lower(user_answer), English_indications))
+    elseif any(strfind(lower(user_answer), english_phrases_all)) || any(ismember(lower(user_answer), English_indications))
+       english_phrases_all = ['My', 'name', 'favorite',' is ', ' from', 'it ', 'superpower', 'animal', 'holiday','food','prefer','books','movies','like','coffee','music '];
+       %english detection
         detect_language = 'English';
         if detect_language== 'English' 
             if i==2
@@ -165,6 +163,7 @@ for i= 1:10
             end%ends i ==2 english
         end %ends detect_language english
         else %else statement for no specified language detection
+            %no specified language detection
             if 
  end
     end
