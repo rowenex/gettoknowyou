@@ -1,7 +1,3 @@
-disp("Welcome to Get to Know You!")
-disp("1. Please answer the question as straightforwardly as possible")
-disp("2. Please adhere to the grammar rules of the language") 
-disp("3. Please answer in full sentences, such as 'My favorite song is...'")
 %answer --> input(prompt, s)
 %asking a question-->prompt('insert q here')
 
@@ -77,7 +73,7 @@ Q10= ['q10e', 'q10s', 'q10f'];
 
 %Starting the "for loop" in order to run program for 10 questions ; %intialization condition; first Question presented 
 for i= 1:10
-    prompt=fprintf('Q%d: ', i); %first thing is to print the question to the user; specific to the Q number
+    prompt = ['Q%d: ', i]; %first thing is to print the question to the user; specific to the Q number
     user_answer= input(prompt,'s'); %insert their answer + input the answer into the program 
     
     %Spanish detection 
