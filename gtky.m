@@ -88,10 +88,10 @@ for i= 1:10
          total_count_English= 0; 
          total_count_French=0; 
     if any(strfind(lower(user_answer), spanish_phrases)) || any(ismember(lower(user_answer), Spanish_letter_accents))
-        detect_language = 'Spanish';
-        if detect_language== 'Spanish' 
+        detect_language = 0;
+        if detect_language== 0 
             total_count_Spanish= total_count_Spanish +1; 
-        if detect_language == 'Spanish' 
+        if detect_language == 0
             if i==2
                 fprintf(q2s);
             elseif i==3
@@ -113,11 +113,12 @@ for i= 1:10
             else
                 'Lo siento, no tengo más preguntas en español.\n';
             end %ends if i==2 for spanish
-        end %ends detect_language = spanish
+        end %ends detect_language = 0 (Spanish)
         end
     elseif any(strfind(lower(user_answer), french_phrases)) || any(ismember(lower(user_answer), French_indicators))
-        detect_language = 'French';
-        if detect_language== 'French' 
+        detect_language = 1;
+        if detect_language == 1 
+            total_count_French= total_count_French +1; 
             if i==2
                 fprintf(q2f);
             elseif i==3
@@ -137,15 +138,16 @@ for i= 1:10
             elseif i==10
                 fprintf(q10f)
             else
-            end%ends if i==2 for french
-        end%ends detect_language = french
-       %english detection
                 'Nous sommes désolées, il n''y a plus de questions.';
+            end%ends if i==2 for french
+        end%ends detect_language = 1 (French)
+       %english detection
+                
     elseif any(strfind(lower(user_answer), english_phrases_all)) || any(ismember(lower(user_answer), English_indications))
-           detect_language = 'English';
+           detect_language = 2;
     else
-        detect_language= 'No specified language.'; 
-        if detect_language== 'English' | detect_language == 'No specified language.'
+        detect_language= 3; 
+        if detect_language== 2 | detect_language == 3
             if i==2
                 fprintf(q2e);
             elseif i==3
@@ -167,7 +169,7 @@ for i= 1:10
             else
                 "I'm sorry, there's no more English questions!\n";
             end%ends i ==2 english
-        end %ends detect_language english
+        end %ends detect_language 2 (English!)
     end
 end 
  %end tally of languages here + display 
