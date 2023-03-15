@@ -75,7 +75,9 @@ for i= 1:10
     spanish_phrases= ['llamo', 'soy', 'estoy', 'mi', 'es', 'favorito', 'favorita','gusta', 'dia', 'festivo', 'superpoder', 'comida','libros', 'películas', 'más', 'Prefiero', 'voy', 'genero','música']; 
     if any(strfind(lower(user_answer), spanish_phrases)) || any(ismember(lower(user_answer), Spanish_letter_accents))
         detect_language = 'Spanish';
+        total_count_Spanish=0;
         if detect_language== 'Spanish' 
+            total_count_Spanish= total_count_Spanish +1; 
             if i==2
                 fprintf(q2s);
             elseif i==3
@@ -102,9 +104,27 @@ for i= 1:10
     elseif
         english_phrases_Q1 = ['My', 'name'];
         %INSERT ENGLISH DETECTION AND NO SPECIFIED LANGUAGE DETECTION +language change HERE
-    end 
-end 
+        end 
+    end
 end
+ %end tally of languages here + display 
+        if total_count_Spanish > total_count_English & total_count_Spanish > total_count_French
+            majority_user_answer = 'This user had the majority of their answers in Spanish.'; 
+        elseif total_count_English > total_count_Spanish & total_count_English > total_count_French 
+            majority_user_answer = 'This user had the majority of their answers in English.'; 
+        elseif total_count_French > total_count_Spanish & total_count_French > total_count_English
+            majority_user_answer= 'This user had the majority of their answers in French.';
+        elseif total_count_Spanish == total_count_English & total_count_Spanish > total_count_French
+            majority_user_answer= 'This user had the majority of their answers tied between English and Spanish.' ;
+        elseif total_count_Spanish == total_count_French & total_count_Spanish > total_count_English
+            majority_user_answer= 'This user had the majority of their answers tied between French and Spanish.';
+        elseif total_count_French == total_count_English & total_count_French > total_count_Spanish
+            majority_user_answer= 'This user had the majority of their answers tied between English and French.';
+        else
+            majority_user_answer= 'This user had the majority of their answers in an unspecified language for this program.';
+        end 
+        disp(majority_user_answer)
+end 
            
 
 %May possibly be useful for the spanish detection portion of the code; do
@@ -119,7 +139,6 @@ end
                 user_answer_spanish=true;
                 break 
             end 
-        end
     end 
 
 

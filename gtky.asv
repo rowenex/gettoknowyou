@@ -7,7 +7,7 @@ disp("4. Please answer in full sentences, such as 'My favorite song is...'")
 %asking a question-->prompt('insert q here')
 
 %create a function so that the code can run "if-else" statements 
-function getting_to_know_you = detect_language(answer)
+function getting_to_know_you = detect_language(user_answer)
 
 %Listed Variables; Accent marks + Grammar Unique to specific language(s)
 egrave = "è";
@@ -73,9 +73,12 @@ for i= 1:10
     
     %Spanish detection 
     spanish_phrases= ['llamo', 'soy', 'estoy', 'mi', 'es', 'favorito', 'favorita','gusta', 'dia', 'festivo', 'superpoder', 'comida','libros', 'películas', 'más', 'Prefiero', 'voy', 'genero','música']; 
-    if any(contains(lower(user_answer), spanish_phrases)) || any(ismember(lower(user_answer), Spanish_letter_accents))
-            if i==1
-            elseif i==2
+    if any(strfind(lower(user_answer), spanish_phrases)) || any(ismember(lower(user_answer), Spanish_letter_accents))
+        detect_language = 'Spanish';
+        total_count_Spanish=0;
+        if detect_language== 'Spanish' 
+            total_count_Spanish= total_count_Spanish +1
+            if i==2
                 fprintf(q2s);
             elseif i==3
                 fprintf(q3s);
@@ -101,8 +104,23 @@ for i= 1:10
     elseif
         english_phrases_Q1 = ['My', 'name'];
         %INSERT ENGLISH DETECTION AND NO SPECIFIED LANGUAGE DETECTION +language change HERE
-    end 
-end 
+        end 
+        %end tally of languages here 
+        if total_count_Spanish > total_count_English & total_count_Spanish > total_count_French
+            majority_user_answer = 'This user had the majority of their answers in Spanish.'; 
+        elseif total_count_English > total_count_Spanish & total_count_English > total_count_French 
+            majority_user_answer = 'This user had the majority of their answers in English.'; 
+        elseif total_count_French > total_count_Spanish & total_count_French > total_count_English
+            majority_user_answer= 'This user had the majority of their answers in French.';
+        elseif total_count_Spanish = total_count_English & total_count_Spanish > total_count_French
+            majority_user_answer= 'This user had the majority of their answers tied between English and Spanish.' ;
+        elseif total_count_Spanish = total_count_French & total_count_Spanish > total_count_English
+            majority_user_answer= 'This user had the majority of their answers tied between French and Spanish.';
+        elseif total_count_French = total_count_English & total_count_French > total_count_Spanish
+            majority_user_answer= 'English and French are tied.' 
+
+        end 
+    end
 end
            
 
