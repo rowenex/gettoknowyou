@@ -83,9 +83,11 @@ Q1= 'What is your name?'; %begin in english no matter what
 
 questions = {Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10};
 N = length(questions);
+prompt = '';
 %Starting the "for loop" in order to run program for 10 questions ; %intialization condition; first Question presented 
 for i= 1:N
-    prompt = ['',i]; %first thing is to print the question to the user; specific to the Q number
+    %prompt = ['',i]; %first thing is to print the question to the user; specific to the Q number
+    fprintf(questions{i}, '%s');
     user_answer = input(prompt, "s"); %insert their answer + input the answer into the program 
     
     %Spanish detection 
@@ -183,9 +185,9 @@ for i= 1:N
     else
         detect_language= 3; 
         if detect_language == 3
-           if i == 1
-                 fprintf(Q1)
-            elseif i==2
+           %if i == 1
+            %     fprintf(Q1)
+            if i==2
                 fprintf(q2e);
             elseif i==3
                 fprintf(q3e);
