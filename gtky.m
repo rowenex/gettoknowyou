@@ -152,9 +152,24 @@ prompt = ' ';
 
 
 %Take user_answer (string) and read until there is a space (the first word) and compare that first string to every position in spanish_phrases until it finds a match. Do this with each word in user_answer 
-
 fprintf(Q1,'s')
 user_answer = input(prompt, "s");
+
+span = length(spanish_phrases);
+ splituser = split(user_answer);
+spansplit = length(splituser);
+for ii = 1:spansplit
+
+    for jj = 1:span
+        if %true, detect = 0 break, else 
+           
+
+        
+    end
+    end
+
+    %above is what I'm thinking so far for the TA session I went to
+
     if any(strfind(lower(user_answer), spanish_phrases)) || any(ismember(lower(user_answer), Spanish_letter_accents))
         detect_language = 0;
         if detect_language== 0 
