@@ -3,7 +3,6 @@
 
 %create a function so that the code can run "if-else" statements 
 function getting_to_know_you = detect_language(user_answer)
-%please please please work
 %Listed Variables; Accent marks + Grammar Unique to specific language(s)
 egrave = "è";
 eaigu = "é";
@@ -34,7 +33,7 @@ French_indicators = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumfl
 
 %Questions 
 Q1= 'What is your name?'; %begin in english no matter what
-%Q2= ['q2e', 'q2s', 'q2f'];
+%Q2= ['q2e', 'q2s', 'q2f'];  
     q2e= 'What is your favorite color?';
     q2s= '¿Cuál es tu color favorito?';
     q2f= 'Quelle est votre couleur préférée?';
@@ -83,13 +82,16 @@ Q1= 'What is your name?'; %begin in english no matter what
 
 questions = {Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10};
 N = length(questions);
-prompt = '';
+prompt = ' ';
 %Starting the "for loop" in order to run program for 10 questions ; %intialization condition; first Question presented 
 for i= 1:N
     %prompt = ['',i]; %first thing is to print the question to the user; specific to the Q number
+    
+    %maybe here we could do like "if detect_language = 0, i = q2s or
+    %something? I think the change needs to happen up here
+    
     fprintf(questions{i}, '%s');
     user_answer = input(prompt, "s"); %insert their answer + input the answer into the program 
-    
     %Spanish detection 
     spanish_phrases= ['llamo', 'soy', 'estoy', 'mi', 'es', 'favorito', 'favorita','gusta', 'dia', 'festivo', 'superpoder', 'comida','libros', 'películas', 'más', 'Prefiero', 'voy', 'genero','música'];
     french_phrases = ['les', 'mon'];
@@ -156,9 +158,7 @@ for i= 1:N
            if detect_language == 2
                total_count_English = total_count_English +1;
          if detect_language == 2
-             if i == 1
-                 fprintf(Q1)
-             elseif i==2
+             if i==2
                 fprintf(q2e);
             elseif i==3
                 fprintf(q3e);
