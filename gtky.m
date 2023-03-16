@@ -137,8 +137,8 @@ prompt = ' ';
 %Starting the "for loop" in order to run program for 10 questions ; %intialization condition; first Question presented 
 
     
-    %spanish_phrases= ['llamo', 'soy', 'estoy ', 'mi ', 'es ', 'favorito ', 'favorita','gusta', 'dia', 'festivo', 'superpoder', 'comida','libros', 'películas', 'más', 'Prefiero', 'voy', 'genero','música'];
-    spanish_phrases = 'llamo';
+    spanish_phrases= ['llamo', 'soy', 'estoy ', 'mi ', 'es ', 'favorito ', 'favorita','gusta', 'dia', 'festivo', 'superpoder', 'comida','libros', 'películas', 'más', 'Prefiero', 'voy', 'genero','música'];
+  
     french_phrases = ['les', 'mon'];
     english_phrases_all = ['My', 'name', 'favorite',' is ', ' from', 'it ', 'superpower', 'animal', 'holiday','food','prefer','books','movies','like','coffee','music '];
          total_count_Spanish=0;
