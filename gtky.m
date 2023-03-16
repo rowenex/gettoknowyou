@@ -154,7 +154,9 @@ for i= 1:N
            if detect_language == 2
                total_count_English = total_count_English +1;
          if detect_language == 2
-            if i==2
+             if i == 1
+                 fprintf(Q1)
+             elseif i==2
                 fprintf(q2e);
             elseif i==3
                 fprintf(q3e);
@@ -181,7 +183,9 @@ for i= 1:N
     else
         detect_language= 3; 
         if detect_language == 3
-            if i==2
+           if i == 1
+                 fprintf(Q1)
+            elseif i==2
                 fprintf(q2e);
             elseif i==3
                 fprintf(q3e);
