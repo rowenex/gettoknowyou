@@ -27,6 +27,7 @@ english_I_ns = "I ";
 french_ui = "ui";
 french_j = "j'";
 french_m = "m'";
+detect_language = 2; %set the default language to English
 Spanish_letter_accents= [eaigu, aaigu, uaigu, oaigu, ntilde, accented_i];
 English_indications = [english_the,english_I_space,english_I_ns];
 French_indicators = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j];
@@ -81,7 +82,11 @@ Q1= 'What is your name?'; %begin in english no matter what
 
 
 questions = {Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10};
+squests = {q2s,q3s,q4s,q5s,q6s,q7s,q8s,q9s,q10s};
+fquests = {q2f,q3f,q4f,q5f,q6f,q7f,q8f,q9f,q10f};
+equests = {q2e,q3e,q4e,q5e,q6e,q7e,q8e,q9e,q10e};
 N = length(questions);
+M = length(squests);
 prompt = ' ';
 %Starting the "for loop" in order to run program for 10 questions ; %intialization condition; first Question presented 
 for i= 1:N
@@ -89,8 +94,26 @@ for i= 1:N
     
     %maybe here we could do like "if detect_language = 0, i = q2s or
     %something? I think the change needs to happen up here
+    if detect_language == 2
+        for j = 2:M 
+            fprintf(equests{j}, '%d');
+        end
+    elseif detect_language == 1
+        for j = 2:M 
+            fprintf(fquests{j}, '%d');
+        end
+    elseif detect_language == 0
+        for j = 2:M
+            fprintf(squests{j}, '%d');
+        end
+    end
     
-    fprintf(questions{i}, '%s');
+    %This is a rough outline
+    %It works but: 1. It prints all the questions at once 
+                 % 2. It does not account for the first question
+   
+    %fprintf(questions{i}, '%s'); 
+    %Currently disabling this to test code above
     user_answer = input(prompt, "s"); %insert their answer + input the answer into the program 
     %Spanish detection 
     spanish_phrases= ['llamo', 'soy', 'estoy', 'mi', 'es', 'favorito', 'favorita','gusta', 'dia', 'festivo', 'superpoder', 'comida','libros', 'películas', 'más', 'Prefiero', 'voy', 'genero','música'];
