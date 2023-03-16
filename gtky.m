@@ -138,7 +138,6 @@ prompt = ' ';
 
     
     spanish_phrases= ['llamo', 'soy', 'estoy ', 'mi ', 'es ', 'favorito ', 'favorita','gusta', 'dia', 'festivo', 'superpoder', 'comida','libros', 'películas', 'más', 'Prefiero', 'voy', 'genero','música'];
-  
     french_phrases = ['les', 'mon'];
     english_phrases_all = ['My', 'name', 'favorite',' is ', ' from', 'it ', 'superpower', 'animal', 'holiday','food','prefer','books','movies','like','coffee','music '];
          total_count_Spanish=0;
@@ -156,24 +155,39 @@ fprintf(Q1,'s')
 user_answer = input(prompt, "s");
 
 span = length(spanish_phrases);
- splituser = split(user_answer);
-spansplit = length(splituser);
-for ii = 1:spansplit
-
-    for jj = 1:span
-        if %true, detect = 0 break, else 
-           
-
-        
+fren = length(french_phrases);
+eng = length(english_phrases_all);
+splituser = split(user_answer);
+usersplit = length(splituser);
+for ii = 1:usersplit
+    for ss = 1:span
+        if strfind(ii,ss)
+            detect_language = 0;
+        end     
     end
+end
+for jj = 1:usersplit
+    for ff = 1:fren
+        if strfind(jj,ff)
+            detect_language = 0;
+        end     
     end
+end
+for gg = 1:usersplit
+    for ee = 1:eng
+        if strfind(gg,ee)
+            detect_language = 0;
+        end     
+    end
+end
+disp(detect_language)
+%above is what I'm thinking so far for the TA session I went to, but it
+%doesn't work
 
-    %above is what I'm thinking so far for the TA session I went to
-
-    if any(strfind(lower(user_answer), spanish_phrases)) || any(ismember(lower(user_answer), Spanish_letter_accents))
-        detect_language = 0;
-        if detect_language== 0 
-            total_count_Spanish = total_count_Spanish +1; 
+ %   if any(strfind(lower(user_answer), spanish_phrases)) || any(ismember(lower(user_answer), Spanish_letter_accents))
+  %      detect_language = 0;
+   %     if detect_language== 0 
+   %         total_count_Spanish = total_count_Spanish +1; 
        % if detect_language == 0
         %    if i==2
        %         fprintf(q2s);
@@ -197,11 +211,11 @@ for ii = 1:spansplit
      %           'Lo siento, no tengo más preguntas en español.\n';
      %       end %ends if i==2 for spanish
       %  end %ends detect_language = 0 (Spanish)
-        end
-    elseif any(strfind(lower(user_answer), french_phrases)) || any(ismember(lower(user_answer), French_indicators))
-        detect_language = 1;
-        if detect_language == 1 
-            total_count_French= total_count_French +1; 
+   %     end
+  %  elseif any(strfind(lower(user_answer), french_phrases)) || any(ismember(lower(user_answer), French_indicators))
+   %     detect_language = 1;
+   %     if detect_language == 1 
+   %         total_count_French= total_count_French +1; 
          %   if i==2
          %       fprintf(q2f);
           %  elseif i==3
@@ -223,11 +237,11 @@ for ii = 1:spansplit
           %  else
          %       'Nous sommes désolées, il n''y a plus de questions.';
           %  end%ends if i==2 for french
-        end%ends detect_language = 1 (French)             
-    elseif any(strfind(lower(user_answer), english_phrases_all)) || any(ismember(lower(user_answer), English_indications))
-           detect_language = 2;
-          if detect_language == 2
-               total_count_English = total_count_English +1;
+    %    end%ends detect_language = 1 (French)             
+   % elseif any(strfind(lower(user_answer), english_phrases_all)) || any(ismember(lower(user_answer), English_indications))
+    %       detect_language = 2;
+      %    if detect_language == 2
+      %         total_count_English = total_count_English +1;
         % if detect_language == 2
           %   if i==2
           %      fprintf(q2e);
@@ -250,11 +264,11 @@ for ii = 1:spansplit
           %  else
           %      "I'm sorry, there's no more English questions!\n";
           %  end
-         end
+     %    end
            
-    else
-        detect_language= 3; 
-        if detect_language == 3
+  %  else
+   %     detect_language= 3; 
+    %    if detect_language == 3
            %if i == 1
             %     fprintf(Q1)
           %  if i==2
@@ -278,8 +292,8 @@ for ii = 1:spansplit
           %  else
            %     "I'm sorry, there's no more English questions!\n";
            % end%ends i ==2 english
-        end %ends detect_language 2 (English!)
-    end
+  %      end %ends detect_language 2 (English!)
+  %  end
 %   disp(detect_language)
 
 if detect_language == 0 
