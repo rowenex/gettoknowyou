@@ -137,7 +137,8 @@ prompt = ' ';
 %Starting the "for loop" in order to run program for 10 questions ; %intialization condition; first Question presented 
 
     
-    spanish_phrases= ['llamo', 'soy', 'estoy', 'mi', 'es', 'favorito', 'favorita','gusta', 'dia', 'festivo', 'superpoder', 'comida','libros', 'películas', 'más', 'Prefiero', 'voy', 'genero','música'];
+    %spanish_phrases= ['llamo', 'soy', 'estoy ', 'mi ', 'es ', 'favorito ', 'favorita','gusta', 'dia', 'festivo', 'superpoder', 'comida','libros', 'películas', 'más', 'Prefiero', 'voy', 'genero','música'];
+    spanish_phrases = 'llamo';
     french_phrases = ['les', 'mon'];
     english_phrases_all = ['My', 'name', 'favorite',' is ', ' from', 'it ', 'superpower', 'animal', 'holiday','food','prefer','books','movies','like','coffee','music '];
          total_count_Spanish=0;
@@ -148,6 +149,9 @@ prompt = ' ';
 %finding english, and finding french and use that to make the code much
 %shorter. Like put the strfind into a function and just call it, for example 
 % something like "if spanish_find = true"
+
+
+%Take user_answer (string) and read until there is a space (the first word) and compare that first string to every position in spanish_phrases until it finds a match. Do this with each word in user_answer 
 
 fprintf(Q1,'s')
 user_answer = input(prompt, "s");
