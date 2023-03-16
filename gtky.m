@@ -144,6 +144,11 @@ prompt = ' ';
          total_count_English= 0; 
          total_count_French=0; 
 
+%ideas for the code: we could create a function for finding spanish,
+%finding english, and finding french and use that to make the code much
+%shorter. Like put the strfind into a function and just call it, for example 
+% something like "if spanish_find = true"
+
 fprintf(Q1,'s')
 user_answer = input(prompt, "s");
     if any(strfind(lower(user_answer), spanish_phrases)) || any(ismember(lower(user_answer), Spanish_letter_accents))
