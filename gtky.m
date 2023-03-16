@@ -34,11 +34,19 @@ French_indicators = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumfl
 
 %Questions 
 Q1= 'What is your name?'; %begin in english no matter what
-%Q2= ['q2e', 'q2s', 'q2f'];  
-    q2e= 'What is your favorite color?';
-    q2s= '¿Cuál es tu color favorito?';
-    q2f= 'Quelle est votre couleur préférée?';
-    Q2= [q2e, q2s, q2f];
+%Q2= ['q2e', 'q2s', 'q2f']; 
+Q2= [];
+if detect_language == 2
+    Q2 = 'What is your favorite color?';
+elseif detect_language == 0
+    Q2 = '¿Cuál es tu color favorito?';
+elseif detect_language == 1
+    Q2 = 'Quelle est votre couleur préférée?';
+    %q2e = 'What is your favorite color?';
+    %q2s= '¿Cuál es tu color favorito?';
+    %q2f= 'Quelle est votre couleur préférée?';
+end
+
 %Q3=  ['q3e', 'q3s', 'q3f'];
     q3e= 'Where are you from?';
     q3s= '¿De dónde eres?';
@@ -80,39 +88,45 @@ Q1= 'What is your name?'; %begin in english no matter what
     q10f='Quels types de musique aimez-vous?';
     Q10= [q10e, q10s, q10f];
 
-
+Q2=[];
+Q3 =[];
+Q4 =[];
+Q5 =[];
+Q6 =[];
+Q7 =[];
+Q8 =[];
+Q9 =[];
+Q10 =[];
 questions = {Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10};
-squests = {q2s,q3s,q4s,q5s,q6s,q7s,q8s,q9s,q10s};
-fquests = {q2f,q3f,q4f,q5f,q6f,q7f,q8f,q9f,q10f};
-equests = {q2e,q3e,q4e,q5e,q6e,q7e,q8e,q9e,q10e};
+%squests = {q2s,q3s,q4s,q5s,q6s,q7s,q8s,q9s,q10s};
+%fquests = {q2f,q3f,q4f,q5f,q6f,q7f,q8f,q9f,q10f};
+%equests = {q2e,q3e,q4e,q5e,q6e,q7e,q8e,q9e,q10e};
 N = length(questions);
-M = length(squests);
+%M = length(squests);
 prompt = ' ';
 %Starting the "for loop" in order to run program for 10 questions ; %intialization condition; first Question presented 
 for i= 1:N
     %prompt = ['',i]; %first thing is to print the question to the user; specific to the Q number
-    
     %maybe here we could do like "if detect_language = 0, i = q2s or
     %something? I think the change needs to happen up here
-    if detect_language == 2
-        for j = 2:M 
-            fprintf(equests{j}, '%d');
-        end
-    elseif detect_language == 1
-        for j = 2:M 
-            fprintf(fquests{j}, '%d');
-        end
-    elseif detect_language == 0
-        for j = 2:M
-            fprintf(squests{j}, '%d');
-        end
-    end
+   % if detect_language == 2
+   %     for j = 2:M 
+   %         fprintf(equests{j}, '%s');
+   %     end
+   % elseif detect_language == 1
+   %     for j = 2:M 
+   %         fprintf(fquests{j}, '%s');
+   %     end
+   % elseif detect_language == 0
+   %     for j = 2:M
+   %         fprintf(squests{j}, '%s');
+    %    end
+    %end
     
     %This is a rough outline
     %It works but: 1. It prints all the questions at once 
                  % 2. It does not account for the first question
-   
-    %fprintf(questions{i}, '%s'); 
+    fprintf(questions{i}, '%s'); 
     %Currently disabling this to test code above
     user_answer = input(prompt, "s"); %insert their answer + input the answer into the program 
     %Spanish detection 
@@ -126,111 +140,110 @@ for i= 1:N
         detect_language = 0;
         if detect_language== 0 
             total_count_Spanish = total_count_Spanish +1; 
-        if detect_language == 0
-            if i==2
-                fprintf(q2s);
-            elseif i==3
-                fprintf(q3s);
-            elseif i==4
-                fprintf(q4s);
-            elseif i==5
-                fprintf(q5s);
-            elseif i==6
-                fprintf(q6s)
-            elseif i==7
-                fprintf(q7s)
-            elseif i==8
-                fprintf(q8s)
-            elseif i==9
-                fprintf(q9s)
-            elseif i==10
-                fprintf(q10s)
-            else
-                'Lo siento, no tengo más preguntas en español.\n';
-            end %ends if i==2 for spanish
-        end %ends detect_language = 0 (Spanish)
+       % if detect_language == 0
+        %    if i==2
+       %         fprintf(q2s);
+         %   elseif i==3
+          %      fprintf(q3s);
+           % elseif i==4
+       %         fprintf(q4s);
+       %     elseif i==5
+      %          fprintf(q5s);
+      %      elseif i==6
+      %          fprintf(q6s)
+      %      elseif i==7
+       %         fprintf(q7s)
+      %      elseif i==8
+      %          fprintf(q8s)
+      %      elseif i==9
+      %          fprintf(q9s)
+      %      elseif i==10
+      %          fprintf(q10s)
+     %       else
+     %           'Lo siento, no tengo más preguntas en español.\n';
+     %       end %ends if i==2 for spanish
+      %  end %ends detect_language = 0 (Spanish)
         end
     elseif any(strfind(lower(user_answer), french_phrases)) || any(ismember(lower(user_answer), French_indicators))
         detect_language = 1;
         if detect_language == 1 
             total_count_French= total_count_French +1; 
-            if i==2
-                fprintf(q2f);
-            elseif i==3
-                fprintf(q3f);
-            elseif i==4
-                fprintf(q4f);
-            elseif i==5
-                fprintf(q5f);
-            elseif i==6
-                fprintf(q6f)
-            elseif i==7
-                fprintf(q7f)
-            elseif i==8
-                fprintf(q8f)
-            elseif i==9
-                fprintf(q9f)
-            elseif i==10
-                fprintf(q10f)
-            else
-                'Nous sommes désolées, il n''y a plus de questions.';
-            end%ends if i==2 for french
+         %   if i==2
+         %       fprintf(q2f);
+          %  elseif i==3
+         %       fprintf(q3f);
+         %   elseif i==4
+         %       fprintf(q4f);
+         %   elseif i==5
+         %       fprintf(q5f);
+          %  elseif i==6
+          %      fprintf(q6f)
+          %  elseif i==7
+          %      fprintf(q7f)
+          %  elseif i==8
+          %      fprintf(q8f)
+          %  elseif i==9
+          %     fprintf(q9f)
+          %  elseif i==10
+          %      fprintf(q10f)
+          %  else
+         %       'Nous sommes désolées, il n''y a plus de questions.';
+          %  end%ends if i==2 for french
         end%ends detect_language = 1 (French)             
     elseif any(strfind(lower(user_answer), english_phrases_all)) || any(ismember(lower(user_answer), English_indications))
            detect_language = 2;
-           if detect_language == 2
+          if detect_language == 2
                total_count_English = total_count_English +1;
-         if detect_language == 2
-             if i==2
-                fprintf(q2e);
-            elseif i==3
-                fprintf(q3e);
-            elseif i==4
-                fprintf(q4e);
-            elseif i==5
-                fprintf(q5e);
-            elseif i==6
-                fprintf(q6e)
-            elseif i==7
-                fprintf(q7e)
-            elseif i==8
-                fprintf(q8e)
-            elseif i==9
-                fprintf(q9e)
-            elseif i==10
-                fprintf(q10e)
-            else
-                "I'm sorry, there's no more English questions!\n";
-            end
+        % if detect_language == 2
+          %   if i==2
+          %      fprintf(q2e);
+          %  elseif i==3
+          %      fprintf(q3e);
+          %  elseif i==4
+          %      fprintf(q4e);
+          %  elseif i==5
+          %      fprintf(q5e);
+          %  elseif i==6
+          %      fprintf(q6e)
+          %  elseif i==7
+          %      fprintf(q7e)
+          %  elseif i==8
+          %      fprintf(q8e)
+          %  elseif i==9
+          %      fprintf(q9e)
+          %  elseif i==10
+          %      fprintf(q10e)
+          %  else
+          %      "I'm sorry, there's no more English questions!\n";
+          %  end
          end
-           end
-    
+           
     else
         detect_language= 3; 
         if detect_language == 3
            %if i == 1
             %     fprintf(Q1)
-            if i==2
-                fprintf(q2e);
-            elseif i==3
-                fprintf(q3e);
-            elseif i==4
-                fprintf(q4e);
-            elseif i==5
-                fprintf(q5e);
-            elseif i==6
-                fprintf(q6e)
-            elseif i==7
-                fprintf(q7e)
-            elseif i==8
-                fprintf(q8e)
-            elseif i==9
-                fprintf(q9e)
-            elseif i==10
-                fprintf(q10e)
-            else
-                "I'm sorry, there's no more English questions!\n";
-            end%ends i ==2 english
+          %  if i==2
+          %      fprintf(q2e);
+          %  elseif i==3
+          %      fprintf(q3e);
+          %  elseif i==4
+          %      fprintf(q4e);
+          %  elseif i==5
+          %      fprintf(q5e);
+          %  elseif i==6
+          %      fprintf(q6e)
+          %  elseif i==7
+          %      fprintf(q7e)
+          %  elseif i==8
+          %      fprintf(q8e)
+          %  elseif i==9
+          %      fprintf(q9e)
+          %  elseif i==10
+          %      fprintf(q10e)
+          %  else
+           %     "I'm sorry, there's no more English questions!\n";
+           % end%ends i ==2 english
         end %ends detect_language 2 (English!)
     end
 end 
