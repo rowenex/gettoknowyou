@@ -34,51 +34,59 @@ French_indicators = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumfl
 
 %Questions 
 Q1= 'What is your name?'; %begin in english no matter what
-Q2= ['q2e', 'q2s', 'q2f'];
+%Q2= ['q2e', 'q2s', 'q2f'];
     q2e= 'What is your favorite color?';
     q2s= '¿Cuál es tu color favorito?';
     q2f= 'Quelle est votre couleur préférée?';
-Q3=  ['q3e', 'q3s', 'q3f'];
+    Q2= [q2e, q2s, q2f];
+%Q3=  ['q3e', 'q3s', 'q3f'];
     q3e= 'Where are you from?';
     q3s= '¿De dónde eres?';
     q3f='D’où êtes-vous?';
-Q4= ['q4e', 'q4s', 'q4f'];
+    Q3=  [q3e, q3s, q3f];
+%Q4= ['q4e', 'q4s', 'q4f'];
     q4e= 'What is your favorite holiday?';
     q4s='¿Cual es tu día festivo favorito?';
     q4f='Quelle est votre fête préférée?';
-Q5=  ['q5e', 'q5s', 'q5f'];
+    Q4= [q4e, q4s, q4f];
+%Q5=  ['q5e', 'q5s', 'q5f'];
     q5e= 'If you could have a superpower, what would it be?';
     q5s= 'Si tuvieras un superpoder, ¿cuál sería?';
     q5f='Si vous aviez un super pouvoir, quel serait-il?';
-Q6=  ['q6e', 'q6s', 'q6f'];
+    Q5=  [q5e, q5s, q5f];
+%Q6=  ['q6e', 'q6s', 'q6f'];
     q6e= 'What is your favorite animal?';
     q6s= '¿Cuál es tu animal favorito?';
     q6f='Quel est votre animal préféré';
-Q7=  ['q7e', 'q7s', 'q7f'];
+    Q6=  [q6e, q6s, q6f];
+%Q7=  ['q7e', 'q7s', 'q7f'];
     q7e= 'What is your favorite food?';
     q7s= '¿Cuál es tu comida favorita?';
     q7f='Quel est votre plat préféré?';
-Q8= ['q8e', 'q8s', 'q8f'];
+    Q7=  [q7e, q7s, q7f];
+%Q8= ['q8e', 'q8s', 'q8f'];
     q8e= 'Do you prefer movies or books?';
     q8s= '¿Prefieres películas o libros?';
     q8f='Préférez-vous les films ou les livres?';
-Q9= ['q9e', 'q9s', 'q9f'];
+    Q8= [q8e, q8s, q8f];
+%Q9= ['q9e', 'q9s', 'q9f'];
     q9e= 'Do you prefer coffee or tea? What is your favorite coffee shop?';
     q9s= '¿Prefieres café o té? ¿Cuál es tu cafetería favorita?';
     q9f='Vous préférez le café ou le thé? Quel est ton café préféré?';
-Q10= ['q10e', 'q10s', 'q10f'];
+    Q9= [q9e, q9s, q9f];
+%Q10= ['q10e', 'q10s', 'q10f'];
     q10e= 'What type of music are you into?';
     q10s= '¿Qué tipo de música te gusta?' ; 
     q10f='Quels types de musique aimez-vous?';
+    Q10= [q10e, q10s, q10f];
 
 
 questions = {Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10};
 N = length(questions);
 %Starting the "for loop" in order to run program for 10 questions ; %intialization condition; first Question presented 
-
 for i= 1:N
     prompt = ['',i]; %first thing is to print the question to the user; specific to the Q number
-    user_answer= input(prompt, "s"); %insert their answer + input the answer into the program 
+    user_answer = input(prompt, "s"); %insert their answer + input the answer into the program 
     
     %Spanish detection 
     spanish_phrases= ['llamo', 'soy', 'estoy', 'mi', 'es', 'favorito', 'favorita','gusta', 'dia', 'festivo', 'superpoder', 'comida','libros', 'películas', 'más', 'Prefiero', 'voy', 'genero','música'];
@@ -90,7 +98,7 @@ for i= 1:N
     if any(strfind(lower(user_answer), spanish_phrases)) || any(ismember(lower(user_answer), Spanish_letter_accents))
         detect_language = 0;
         if detect_language== 0 
-            total_count_Spanish= total_count_Spanish +1; 
+            total_count_Spanish = total_count_Spanish +1; 
         if detect_language == 0
             if i==2
                 fprintf(q2s);
@@ -140,14 +148,39 @@ for i= 1:N
             else
                 'Nous sommes désolées, il n''y a plus de questions.';
             end%ends if i==2 for french
-        end%ends detect_language = 1 (French)
-       %english detection
-                
+        end%ends detect_language = 1 (French)             
     elseif any(strfind(lower(user_answer), english_phrases_all)) || any(ismember(lower(user_answer), English_indications))
            detect_language = 2;
+           if detect_language == 2
+               total_count_English = total_count_English +1;
+         if detect_language == 2
+            if i==2
+                fprintf(q2e);
+            elseif i==3
+                fprintf(q3e);
+            elseif i==4
+                fprintf(q4e);
+            elseif i==5
+                fprintf(q5e);
+            elseif i==6
+                fprintf(q6e)
+            elseif i==7
+                fprintf(q7e)
+            elseif i==8
+                fprintf(q8e)
+            elseif i==9
+                fprintf(q9e)
+            elseif i==10
+                fprintf(q10e)
+            else
+                "I'm sorry, there's no more English questions!\n";
+            end
+         end
+           end
+    
     else
         detect_language= 3; 
-        if detect_language== 2 | detect_language == 3
+        if detect_language == 3
             if i==2
                 fprintf(q2e);
             elseif i==3
