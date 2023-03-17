@@ -139,7 +139,7 @@ prompt = ' ';
     
     spanish_phrases= ["llamo", "soy", "estoy", "mi", "es", "favorito", "favorita","gusta", "dia", "festivo", "superpoder", "comida","libros", "películas", "más", "Prefiero", "voy", "genero","música"];
     french_phrases = ["les", "mon", "suis", "je"];
-    english_phrases_all = ["My","name"," is ", "from", "it", "superpower", "animal", "holiday", "food","prefer","books","movie","like","coffee","music "]; %add name
+    english_phrases_all = ["My","name"," is ", "from", "it", "superpower", "animal", "holiday", "food","prefer","books","movie","like","coffee","music "]; %add favorite?
          total_count_Spanish=0;
          total_count_English= 0; 
          total_count_French=0; 
@@ -337,24 +337,24 @@ end
 
 fprintf(Q2,'s');
 user_answer = input(prompt, "s");
-for p = 1:length(spanish_phrases)
-if any(strfind(lower(user_answer), spanish_phrases(p))) || any(ismember(lower(user_answer), Spanish_letter_accents))
+for pp = 1:length(spanish_phrases)
+if any(strfind(lower(user_answer), spanish_phrases(pp))) || any(ismember(lower(user_answer), Spanish_letter_accents))
         detect_language = 0;
         if detect_language== 0 
             total_count_Spanish = total_count_Spanish +1; 
         end
 end
 end
-for f = 1:length(french_phrases)
-if any(strfind(lower(user_answer), french_phrases(f))) || any(ismember(lower(user_answer), French_indicators))
+for ff = 1:length(french_phrases)
+if any(strfind(lower(user_answer), french_phrases(ff))) || any(ismember(lower(user_answer), French_indicators))
         detect_language = 1;
         if detect_language == 1 
             total_count_French= total_count_French +1; 
         end
 end
 end
-for e = 1:length(english_phrases_all)
-if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lower(user_answer), English_indications))
+for ee = 1:length(english_phrases_all)
+if any(strfind(lower(user_answer), english_phrases_all(ee))) || any(ismember(lower(user_answer), English_indications))
            detect_language = 2;
           if detect_language == 2
                total_count_English = total_count_English +1;
