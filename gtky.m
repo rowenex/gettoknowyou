@@ -137,9 +137,9 @@ prompt = ' ';
 %Starting the "for loop" in order to run program for 10 questions ; %intialization condition; first Question presented 
 
     
-    spanish_phrases= ["llamo", "soy", "estoy", "favorit", "mi", "es", "favorita","gusta", "dia", "festivo", "superpoder", "comida","libros", "películas", "más", "Prefiero", "voy", "genero","música"];
+    spanish_phrases= ["llamo", "soy", "estoy", "favorit", "mi", "es", "favorito", "favorita","gusta", "dia", "festivo", "superpoder", "comida","libros", "películas", "más", "Prefiero", "voy", "genero","música"];
     french_phrases = ["les", "mon", "suis", "je"];
-    english_phrases_all = ["My","favorite", "name"," is ", "from", "it", "superpower", "animal", "holiday", "food","prefer","books","movie","like","coffee","music "]; %add favorite?
+    english_phrases_all = ["My","favorite", "name"," is ", "from", "superpower", "animal", "holiday", "food","prefer","books","movie","like","coffee","music "]; %add favorite?
          total_count_Spanish=0;
          total_count_English= 0; 
          total_count_French=0; 
