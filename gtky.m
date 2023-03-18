@@ -681,17 +681,17 @@ end
 
 
  %end tally of languages here + display 
-        if total_count_Spanish > total_count_English & total_count_Spanish > total_count_French
+        if (total_count_Spanish > total_count_English) && (total_count_Spanish > total_count_French)
             majority_user_answer = 'This user had the majority of their answers in Spanish.'; 
-        elseif total_count_English > total_count_Spanish & total_count_English > total_count_French 
+        elseif (total_count_English > total_count_Spanish) && (total_count_English > total_count_French) 
             majority_user_answer = 'This user had the majority of their answers in English.'; 
-        elseif total_count_French > total_count_Spanish & total_count_French > total_count_English
+        elseif (total_count_French > total_count_Spanish) && (total_count_French > total_count_English)
             majority_user_answer= 'This user had the majority of their answers in French.';
-        elseif total_count_Spanish == total_count_English & total_count_Spanish > total_count_French
+        elseif (total_count_Spanish == total_count_English) &&(total_count_Spanish > total_count_French)
             majority_user_answer= 'This user had the majority of their answers tied between English and Spanish.' ;
-        elseif total_count_Spanish == total_count_French & total_count_Spanish > total_count_English
+        elseif (total_count_Spanish == total_count_French) && (total_count_Spanish > total_count_English)
             majority_user_answer= 'This user had the majority of their answers tied between French and Spanish.';
-        elseif total_count_French == total_count_English & total_count_French > total_count_Spanish
+        elseif (total_count_French == total_count_English) && (total_count_French > total_count_Spanish)
             majority_user_answer= 'This user had the majority of their answers tied between English and French.';
         else
             majority_user_answer= 'This user had the majority of their answers in an unspecified language for this program.';
