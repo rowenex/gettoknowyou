@@ -699,6 +699,7 @@ end
         
         getting_to_know_you = majority_user_answer;
         disp(getting_to_know_you)
+        disp("It was great to get to know you!")
 end 
 
     
