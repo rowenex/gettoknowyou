@@ -139,7 +139,7 @@ prompt = ' ';
     
     spanish_phrases= ["llamo", "soy", "estoy", "favorit", "mi", "es", "favorito", "favorita","gusta", "dia", "festivo", "superpoder", "comida","libros", "películas", "más", "Prefiero", "voy", "genero","música"];
     french_phrases = ["les", "mon", "suis", "je"];
-    english_phrases_all = ["My","favorite", "name"," is ", "from", "superpower", "animal", "holiday", "food","prefer","books","movie","like","coffee","music "]; %add favorite?
+    english_phrases_all = ["My","favorite", "name"," is ", "from"," it " "superpower", "animal", "holiday", "food","prefer","books","movie","like","coffee","music "]; %add favorite?
          total_count_Spanish=0;
          total_count_English= 0; 
          total_count_French=0; 
@@ -181,7 +181,7 @@ if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lowe
           end
 end
 end
-disp(detect_language)
+
 
 %span = length(spanish_phrases);
 %fren = length(french_phrases);
@@ -361,7 +361,7 @@ if any(strfind(lower(user_answer), english_phrases_all(ee))) || any(ismember(low
           end
 end
 end
-disp(detect_language)
+
 %if detect_language ~=0 
 %    detect_language= 3; 
 %end
@@ -400,7 +400,7 @@ if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lowe
           end
 end
 end
-disp(detect_language)
+
 %else 
 %    detect_language= 3; 
 %end
@@ -439,7 +439,7 @@ if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lowe
           end
 end
 end
-disp(detect_language)
+
 %else 
 %    detect_language= 3; 
 %end
@@ -479,7 +479,7 @@ if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lowe
           end
 end
 end
-disp(detect_language)
+
 %else 
 %    detect_language= 3; 
 %end
@@ -519,7 +519,7 @@ if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lowe
           end
 end
 end
-disp(detect_language)
+
 %else 
 %    detect_language= 3; 
 %end
@@ -558,7 +558,7 @@ if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lowe
           end
 end
 end
-disp(detect_language)
+
 %else 
 %    detect_language= 3; 
 %end
@@ -597,7 +597,6 @@ if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lowe
           end
 end
 end
-disp(detect_language)
 %else 
 %    detect_language= 3; 
 %end
@@ -636,7 +635,7 @@ if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lowe
           end
 end
 end
-disp(detect_language)
+
 %else 
 %    detect_language= 3; 
 %end
@@ -675,7 +674,7 @@ if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lowe
           end
 end
 end
-disp(detect_language)
+
 %else 
 %    detect_language= 3; 
 %end
