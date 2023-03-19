@@ -2,7 +2,7 @@
 %asking a question-->prompt('insert q here')
 
 %create a function so that the code can run "if-else" statements 
-function getting_to_know_you = detect_language(user_answer)
+function gtky %= detect_language(user_answer)
 %Listed Variables; Accent marks + Grammar Unique to specific language(s)
 egrave = "è";
 eaigu = "é";
@@ -103,6 +103,8 @@ prompt = ' ';
 %contains(str,substr,IgnoreCase=true
 
 %Take user_answer (string) and read until there is a space (the first word) and compare that first string to every position in spanish_phrases until it finds a match. Do this with each word in user_answer 
+
+
 fprintf(Q1,'s')
 user_answer = input(prompt, "s");
 for p = 1:length(spanish_phrases)
@@ -605,25 +607,3 @@ end
        
         disp("It was great to get to know you!")
 end 
-
-    
-
-           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
