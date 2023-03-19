@@ -24,8 +24,8 @@ french_m = "m'";
 Spanish_letter_accents= [eaigu, aaigu, uaigu, oaigu, ntilde, accented_i];
 English_indications = [english_the,english_I_space,english_I_ns];
 French_indicators = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j];
-detect_language = [];
-all_accents = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j,eaigu, aaigu, uaigu, oaigu, ntilde, accented_i];
+detect_language = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j,eaigu, aaigu, uaigu, oaigu, ntilde, accented_i];
+all_accents = []
 %Questions 
 Q1= 'What is your name?'; %begin in english no matter what
 
@@ -97,19 +97,19 @@ prompt = ' ';
     function language_testing 
       words_in_phrase= split(user_answer);
       num_of_accents= 0;
-        detect_language = 4; %initiate detect_language to not be any specific language (make 3 work)
-        for p = 1:length(spanish_phrases)
-            for i= 1:length(words_in_phrase)
+       for i= 1:length(words_in_phrase)
                 if strcmp(words_in_phrase(i), words_in_phrase)
-                    num_of_accents= count(words_in_phrase(i),all_accents);
+                    num_of_accents= count(words_in_phrase(i),Spanish_letter_accents);
                 if num_of_accents > 1
                     detect_language= 1;
                 else
                     detect_language= 4; %cannot say it is spanish even with 1 or no accents; both spanish and french words can have 1 accent and all languages specified in the program can have NO accents.
                 end
                 end
-            end
-            
+       end
+
+        detect_language = 4; %initiate detect_language to not be any specific language (make 3 work)
+        for p = 1:length(spanish_phrases)
             if any(strfind(lower(user_answer), spanish_phrases(p))) || any(ismember(lower(user_answer), Spanish_letter_accents)) % need to come up with a counting scheme for accent marks--> language detects French as Spanish because of this.
                  detect_language = 0;
             if detect_language== 0 
