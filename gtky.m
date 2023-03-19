@@ -25,7 +25,7 @@ english_I_ns = "I ";
 french_ui = "ui";
 french_j = "j'";
 french_m = "m'";
-detect_language = 2; %set the default language to English
+%detect_language = 2; set the default language to English
 Spanish_letter_accents= [eaigu, aaigu, uaigu, oaigu, ntilde, accented_i];
 English_indications = [english_the,english_I_space,english_I_ns];
 French_indicators = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j];
@@ -91,7 +91,8 @@ prompt = ' ';
          total_count_English= 0; 
          total_count_French=0; 
          total_count_unknown=0;
-
+         
+detect_language = [];
 %the nested function that tests for the language
     function language_testing 
         detect_language = 4; %initiate detect_language to not be any specific language (make 3 work)
@@ -125,14 +126,6 @@ prompt = ' ';
                 total_count_unknown = total_count_unknown + 1;
             end
         end
-       % for e = 1:length(english_phrases_all)
-      %     if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
-      %          detect_language = 3;
-       %     if detect_language == 3
-       %        total_count_unknown = total_count_unknown +1;
-       %     end
-       %     end
-        %end
     end
 
 %QUESTION 1
