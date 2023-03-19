@@ -19,8 +19,6 @@ ocircumflex = "ô";
 ntilde = "ñ";
 accented_i = 'í';
 icircumflex = "î"; 
-inverted_exclam = '!';
-inverted_question = '¿';
 english_the = 'the';
 english_I_space = " I ";
 english_I_ns = "I ";
@@ -88,7 +86,7 @@ prompt = ' ';
     
     spanish_phrases= ["llamo", "soy", "estoy", "favorito","favorita", "mi", "es", "favorito", "favorita","gusta", "dia", "festivo", "superpoder", "comida","libros", "películas", "más", "Prefiero", "voy", "genero","música"];
     french_phrases = ["les", "mon", "suis", "je"];
-    english_phrases_all = ["My","favorite", "name"," is ", "from"," it " "superpower", "holiday", "food","prefer","books","movie","like","coffee","music "]; %add favorite?
+    english_phrases_all = ["My","favorite", "name"," want ", " is ", "from"," it " "superpower", "holiday", "food","prefer","books","movie","like","coffee","music "]; %add favorite?
          total_count_Spanish=0;
          total_count_English= 0; 
          total_count_French=0; 
@@ -103,42 +101,76 @@ prompt = ' ';
 %contains(str,substr,IgnoreCase=true
 
 %Take user_answer (string) and read until there is a space (the first word) and compare that first string to every position in spanish_phrases until it finds a match. Do this with each word in user_answer 
-
+    function language_testing 
+        for p = 1:length(spanish_phrases)
+            if any(strfind(lower(user_answer), spanish_phrases(p))) || any(ismember(lower(user_answer), Spanish_letter_accents))
+                 detect_language = 0;
+            if detect_language== 0 
+            total_count_Spanish = total_count_Spanish +1; 
+            end
+            end
+        end
+        for f = 1:length(french_phrases)
+            if any(strfind(lower(user_answer), french_phrases(f))) || any(ismember(lower(user_answer), French_indicators))
+                detect_language = 1;
+            if detect_language == 1 
+            total_count_French= total_count_French +1; 
+            end
+            end
+        end
+        for e = 1:length(english_phrases_all)
+            if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lower(user_answer), English_indications))
+                 detect_language = 2;
+            if detect_language == 2
+               total_count_English = total_count_English +1;
+            end
+            end
+        end
+       % for e = 1:length(english_phrases_all)
+      %     if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
+      %          detect_language = 3;
+       %     if detect_language == 3
+       %        total_count_unknown = total_count_unknown +1;
+       %     end
+       %     end
+        %end
+    end
 
 fprintf(Q1,'s')
 user_answer = input(prompt, "s");
-for p = 1:length(spanish_phrases)
-if any(strfind(lower(user_answer), spanish_phrases(p))) || any(ismember(lower(user_answer), Spanish_letter_accents))
-        detect_language = 0;
-        if detect_language== 0 
-            total_count_Spanish = total_count_Spanish +1; 
-        end
-end
-end
-for f = 1:length(french_phrases)
-if any(strfind(lower(user_answer), french_phrases(f))) || any(ismember(lower(user_answer), French_indicators))
-        detect_language = 1;
-        if detect_language == 1 
-            total_count_French= total_count_French +1; 
-        end
-end
-end
-for e = 1:length(english_phrases_all)
-if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lower(user_answer), English_indications))
-           detect_language = 2;
-          if detect_language == 2
-               total_count_English = total_count_English +1;
-          end
-end
-end
-for e = 1:length(english_phrases_all)
-if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
-           detect_language = 3;
-          if detect_language == 3
-               total_count_unknown = total_count_unknown +1;
-          end
-end
-end
+language_testing()
+%for p = 1:length(spanish_phrases)
+%if any(strfind(lower(user_answer), spanish_phrases(p))) || any(ismember(lower(user_answer), Spanish_letter_accents))
+%        detect_language = 0;
+%        if detect_language== 0 
+%            total_count_Spanish = total_count_Spanish +1; 
+%        end
+%end
+%end
+%for f = 1:length(french_phrases)
+%if any(strfind(lower(user_answer), french_phrases(f))) || any(ismember(lower(user_answer), French_indicators))
+%        detect_language = 1;
+%        if detect_language == 1 
+%            total_count_French= total_count_French +1; 
+%        end
+%end
+%end
+%for e = 1:length(english_phrases_all)
+%if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lower(user_answer), English_indications))
+%           detect_language = 2;
+%          if detect_language == 2
+%               total_count_English = total_count_English +1;
+%          end
+%end
+%end
+%for e = 1:length(english_phrases_all)
+%if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
+%           detect_language = 3;
+%          if detect_language == 3
+%               total_count_unknown = total_count_unknown +1;
+%          end
+%end
+%end
 
 
 
@@ -178,14 +210,14 @@ if any(strfind(lower(user_answer), english_phrases_all(ee))) || any(ismember(low
           end
 end
 end
-for e = 1:length(english_phrases_all)
-if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
-           detect_language = 3;
-          if detect_language == 3
-               total_count_unknown = total_count_unknown +1;
-          end
-end
-end
+%for e = 1:length(english_phrases_all)
+%if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
+%           detect_language = 3;
+%          if detect_language == 3
+%               total_count_unknown = total_count_unknown +1;
+    %      end
+%end
+%end
 
 %if detect_language ~=0 
 %    detect_language= 3; 
@@ -227,14 +259,14 @@ if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lowe
           end
 end
 end
-for e = 1:length(english_phrases_all)
-if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
-           detect_language = 3;
-          if detect_language == 3
-               total_count_unknown = total_count_unknown +1;
-          end
-end
-end
+%for e = 1:length(english_phrases_all)
+%if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
+%           detect_language = 3;
+%          if detect_language == 3
+%               total_count_unknown = total_count_unknown +1;
+%          end
+%end
+%end
 
 %else 
 %    detect_language= 3; 
@@ -276,14 +308,14 @@ if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lowe
           end
 end
 end
-for e = 1:length(english_phrases_all)
-if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
-           detect_language = 3;
-          if detect_language == 3
-               total_count_unknown = total_count_unknown +1;
-          end
-end
-end
+%for e = 1:length(english_phrases_all)
+%if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
+%           detect_language = 3;
+%          if detect_language == 3
+%               total_count_unknown = total_count_unknown +1;
+%          end
+%end
+%end
 
 %else 
 %    detect_language= 3; 
@@ -326,14 +358,14 @@ if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lowe
           end
 end
 end
-for e = 1:length(english_phrases_all)
-if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
-           detect_language = 3;
-          if detect_language == 3
-               total_count_unknown = total_count_unknown +1;
-          end
-end
-end
+%for e = 1:length(english_phrases_all)
+%if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
+%           detect_language = 3;
+%          if detect_language == 3
+%               total_count_unknown = total_count_unknown +1;
+%          end
+%end
+%end
 
 %else 
 %    detect_language= 3; 
@@ -376,14 +408,14 @@ if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lowe
           end
 end
 end
-for e = 1:length(english_phrases_all)
-if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
-           detect_language = 3;
-          if detect_language == 3
-               total_count_unknown = total_count_unknown +1;
-          end
-end
-end
+%for e = 1:length(english_phrases_all)
+%if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
+%           detect_language = 3;
+%          if detect_language == 3
+%               total_count_unknown = total_count_unknown +1;
+%          end
+%end
+%end
 
 %else 
 %    detect_language= 3; 
@@ -425,14 +457,14 @@ if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lowe
           end
 end
 end
-for e = 1:length(english_phrases_all)
-if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
-           detect_language = 3;
-          if detect_language == 3
-               total_count_unknown = total_count_unknown +1;
-          end
-end
-end
+%for e = 1:length(english_phrases_all)
+%if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
+%           detect_language = 3;
+%          if detect_language == 3
+%               total_count_unknown = total_count_unknown +1;
+%          end
+%end
+%end
 
 %else 
 %    detect_language= 3; 
@@ -474,14 +506,14 @@ if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lowe
           end
 end
 end
-for e = 1:length(english_phrases_all)
-if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
-           detect_language = 3;
-          if detect_language == 3
-               total_count_unknown = total_count_unknown +1;
-          end
-end
-end
+%for e = 1:length(english_phrases_all)
+%if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
+ %          detect_language = 3;
+%          if detect_language == 3
+%               total_count_unknown = total_count_unknown +1;
+%          end
+%end
+%end
 %else 
 %    detect_language= 3; 
 %end
@@ -522,14 +554,14 @@ if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lowe
           end
 end
 end
-for e = 1:length(english_phrases_all)
-if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
-           detect_language = 3;
-          if detect_language == 3
-               total_count_unknown = total_count_unknown +1;
-          end
-end
-end
+%for e = 1:length(english_phrases_all)
+%if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
+%           detect_language = 3;
+%          if detect_language == 3
+%               total_count_unknown = total_count_unknown +1;
+%          end
+%end
+%end
 
 %else 
 %    detect_language= 3; 
@@ -571,14 +603,14 @@ if any(strfind(lower(user_answer), english_phrases_all(e))) || any(ismember(lowe
           end
 end
 end
-for e = 1:length(english_phrases_all)
-if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
-           detect_language = 3;
-          if detect_language == 3
-               total_count_unknown = total_count_unknown +1;
-          end
-end
-end
+%for e = 1:length(english_phrases_all)
+%if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
+%           detect_language = 3;
+%          if detect_language == 3
+%               total_count_unknown = total_count_unknown +1;
+%          end
+%end
+%end
 
 %else 
 %    detect_language= 3; 
