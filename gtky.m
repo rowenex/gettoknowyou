@@ -137,8 +137,8 @@ elseif detect_language ==1
     Q2 = q2f;
 elseif detect_language == 2 || detect_language ==3
     Q2 = q2e;
-else
-    Q2 = q2e;
+else% look at the note on the line below
+    Q2 = q2e;  % these two lines are kind of inefficient? do we need to include if we already detect for an unspecified language already? 
 end
 
 fprintf(Q2,'s');
@@ -153,7 +153,7 @@ elseif detect_language ==1
     Q3 = q3f;
 elseif detect_language == 2 || detect_language ==3
     Q3 = q3e;
-else
+else %same note as Q2- presuming its the same for the rest of the Qs (through Q10) 
     Q3 = q3e;
 end
 
