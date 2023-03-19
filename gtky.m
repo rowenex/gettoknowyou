@@ -21,9 +21,9 @@ english_I_ns = "I ";
 french_ui = "ui";
 french_j = "j'";
 french_m = "m'";
-Spanish_letter_accents= [eaigu, aaigu, uaigu, oaigu, ntilde, accented_i];
-English_indications = [english_the,english_I_space,english_I_ns];
-French_indicators = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j];
+%Spanish_letter_accents= [eaigu, aaigu, uaigu, oaigu, ntilde, accented_i];
+%English_indications = [english_the,english_I_space,english_I_ns];
+%French_indicators = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j];
 all_accents= [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j,eaigu, aaigu, uaigu, oaigu, ntilde, accented_i];
 detect_language = [];
 
@@ -79,8 +79,8 @@ Q10 =[];
 
 prompt = ' ';
 
-    spanish_phrases= ["yo ", "llamo", "soy", "estoy", "favorito","favorita", "mi", " es ", "favorito", "favorita","gusta", "dia", "festivo", "superpoder", "comida","libros", "películas", "más", "prefiero", "voy", "genero","música"];
-    french_phrases = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j, "préférer", "les", "mon", "suis", "je"];
+    spanish_phrases= [ntilde, "yo ", "llamo", "soy", "estoy", "favorito","favorita", "mi", " es ", "favorito", "favorita","gusta", "dia", "festivo", "superpoder", "comida","libros", "películas", "más", "prefiero", "voy", "genero","música", "sí", "té"];
+    french_phrases = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j, "préfé", "les", "mon", "suis", "je"];
     english_phrases_all = [english_the,english_I_space,english_I_ns, "My","favorite", "name"," want ", " is ", "from"," it " "superpower", "holiday", "food","prefer","books","movie","like","coffee","music ", "love"];
          total_count_Spanish=0;
          total_count_English= 0; 
@@ -88,7 +88,6 @@ prompt = ' ';
          total_count_unknown=0;
 
  
-
 %the nested function that tests for the language
     function language_testing 
         detect_language = 4; %initiate detect_language to not be any specific language (make 3 work)
@@ -106,10 +105,10 @@ prompt = ' ';
                     break
                 end
         end 
-        
+
         if detect_language ~= 1
          for p= 1:length(spanish_phrases) %new problem arising with spanish detection! 
-             if any(strfind(lower(user_answer), spanish_phrases(p))) 
+             if any(strfind(lower(user_answer), spanish_phrases(p))) %|| something about spanish words with one accent ... 
                  detect_language=0; 
              end 
          end 
