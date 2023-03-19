@@ -84,7 +84,7 @@ prompt = ' ';
 %Starting the "for loop" in order to run program for 10 questions ; %intialization condition; first Question presented 
 
     
-    spanish_phrases= ["llamo", "soy", "estoy", "favorito","favorita", "mi", "es", "favorito", "favorita","gusta", "dia", "festivo", "superpoder", "comida","libros", "películas", "más", "Prefiero", "voy", "genero","música"];
+    spanish_phrases= ["yo ", "llamo", "soy", "estoy", "favorito","favorita", "mi", "es", "favorito", "favorita","gusta", "dia", "festivo", "superpoder", "comida","libros", "películas", "más", "prefiero", "voy", "genero","música"];
     french_phrases = ["les", "mon", "suis", "je"];
     english_phrases_all = ["My","favorite", "name"," want ", " is ", "from"," it " "superpower", "holiday", "food","prefer","books","movie","like","coffee","music "]; %add favorite?
          total_count_Spanish=0;
@@ -94,6 +94,7 @@ prompt = ' ';
 
 %the nested function that tests for the language
     function language_testing 
+        detect_language = 4; %initiate detect_language to not be any specific language (make 3 work)
         for p = 1:length(spanish_phrases)
             if any(strfind(lower(user_answer), spanish_phrases(p))) || any(ismember(lower(user_answer), Spanish_letter_accents))
                  detect_language = 0;
@@ -118,6 +119,12 @@ prompt = ' ';
             end
             end
         end
+        if (detect_language ~= 0) & (detect_language ~= 1) & (detect_language ~= 2)
+            detect_language = 3;
+            if detect_language == 3
+                total_count_unknown = total_count_unknown + 1;
+            end
+        end
        % for e = 1:length(english_phrases_all)
       %     if any(strfind(lower(user_answer), english_phrases_all(e))) == 0 && any(ismember(lower(user_answer), English_indications)) == 0 && any(strfind(lower(user_answer), french_phrases(f))) == 0 && any(ismember(lower(user_answer), French_indicators)) == 0 && any(strfind(lower(user_answer), spanish_phrases(p))) == 0 && any(ismember(lower(user_answer), Spanish_letter_accents)) == 0
       %          detect_language = 3;
@@ -132,6 +139,7 @@ prompt = ' ';
 fprintf(Q1,'s')
 user_answer = input(prompt, "s");
 language_testing()
+disp(detect_language)
 
 %QUESTION 2
 if detect_language == 0 
@@ -147,6 +155,7 @@ end
 fprintf(Q2,'s');
 user_answer = input(prompt, "s");
 language_testing()
+disp(detect_language)
 
 %QUESTION 3
 if detect_language == 0 
@@ -162,6 +171,7 @@ end
 fprintf(Q3,'s');
 user_answer = input(prompt, "s");
 language_testing()
+disp(detect_language)
 
 %QUESTION 4
 if detect_language == 0 
@@ -177,6 +187,7 @@ end
 fprintf(Q4,'s');
 user_answer = input(prompt, "s");
 language_testing()
+disp(detect_language)
 
 %QUESTION 5
 if detect_language == 0 
@@ -192,6 +203,7 @@ end
 fprintf(Q5,'s');
 user_answer = input(prompt, "s");
 language_testing()
+disp(detect_language)
 
 %QUESTION 6
 if detect_language == 0 
@@ -207,6 +219,7 @@ end
 fprintf(Q6,'s');
 user_answer = input(prompt, "s");
 language_testing()
+disp(detect_language)
 
 %QUESTION 7
 if detect_language == 0 
@@ -222,6 +235,7 @@ end
 fprintf(Q7,'s');
 user_answer = input(prompt, "s");
 language_testing()
+disp(detect_language)
 
 %QUESTION 8
 if detect_language == 0 
@@ -237,6 +251,7 @@ end
 fprintf(Q8,'s');
 user_answer = input(prompt, "s");
 language_testing()
+disp(detect_language)
 
 %QUESTION 9
 if detect_language == 0 
@@ -252,6 +267,7 @@ end
 fprintf(Q9,'s');
 user_answer = input(prompt, "s");
 language_testing()
+disp(detect_language)
 
 %QUESTION 10
 if detect_language == 0 
@@ -267,7 +283,12 @@ end
 fprintf(Q10,'s');
 user_answer = input(prompt, "s");
 language_testing()
+disp(detect_language)
 
+disp(total_count_unknown)
+disp(total_count_French)
+disp(total_count_English)
+disp(total_count_Spanish)
 
  %end tally of languages here + display 
         if (total_count_Spanish > total_count_English) && (total_count_Spanish > total_count_French)
