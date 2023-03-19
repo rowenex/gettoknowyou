@@ -79,20 +79,13 @@ Q10 =[];
 
 prompt = ' ';
 
-
- 
-% i think we need to make these more extensive: 
-
-    spanish_phrases= ["yo", "llamo", "soy", "estoy", "favorito","favorita", "mi", "es", "favorito", "favorita","gusta", "dia", "festivo", "superpoder", "comida","libros", "películas", "más", "prefiero", "voy", "genero","música"];
-    french_phrases = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j, "les", "mon", "suis", "je"];
-    english_phrases_all = [english_the,english_I_space,english_I_ns, "My","favorite", "name"," want ", " is ", "from"," it " "superpower", "holiday", "food","prefer","books","movie","like","coffee","music "];
+    spanish_phrases= ["yo ", "llamo", "soy", "estoy", "favorito","favorita", "mi", " es ", "favorito", "favorita","gusta", "dia", "festivo", "superpoder", "comida","libros", "películas", "más", "prefiero", "voy", "genero","música"];
+    french_phrases = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j, "préférer", "les", "mon", "suis", "je"];
+    english_phrases_all = [english_the,english_I_space,english_I_ns, "My","favorite", "name"," want ", " is ", "from"," it " "superpower", "holiday", "food","prefer","books","movie","like","coffee","music ", "love"];
          total_count_Spanish=0;
          total_count_English= 0; 
          total_count_French=0; 
          total_count_unknown=0;
-
-      
- 
 
 %the nested function that tests for the language
     function language_testing 
@@ -102,54 +95,75 @@ prompt = ' ';
         %if they exceed one. If 1+ accent mark in a word (as indicated/noted) by 
         %the program then it has to be French!
 
-        words_in_phrase= split(user_answer);
-        num_of_accents= 0;
-        for ff= 1:length(words_in_phrase)
-            num_of_accents= count(words_in_phrase(ff), all_accents);
-                if num_of_accents > 1
-                    detect_language=1; 
-                    break
-                end
-        end 
+       % words_in_phrase= split(user_answer);
+        %num_of_accents= 0;
+        %for ff= 1:length(words_in_phrase)
+        %    num_of_accents= count(words_in_phrase(ff), all_accents);
+        %        if num_of_accents > 1
+        %            detect_language=1; 
+        %            break
+        %        end
+        %end 
 
          for p= 1:length(spanish_phrases) %new problem arising with spanish detection! 
              if any(strfind(lower(user_answer), spanish_phrases(p))) 
                  detect_language=0; 
-             if detect_language== 0 
-                 total_count_Spanish = total_count_Spanish +1;
-             end
+          %   if detect_language== 0 
+          %       total_count_Spanish = total_count_Spanish +1;
+          %   end
              end 
          end 
 
-
+        if detect_language ~= 0
         for f = 1:length(french_phrases)
             if any(strfind(lower(user_answer), french_phrases(f)))
                 detect_language = 1;
-            if detect_language == 1 
-            total_count_French= total_count_French +1; 
-            end
+          %  if detect_language == 1 
+          %  total_count_French= total_count_French +1; 
+          %  end
             end
         end
+        end
+
+        if (detect_language ~= 0) & (detect_language ~= 1)
         for e = 1:length(english_phrases_all)
             if any(strfind(lower(user_answer), english_phrases_all(e)))
                  detect_language = 2;
-            if detect_language == 2
-               total_count_English = total_count_English +1;
-            end
+           % if detect_language == 2
+           %    total_count_English = total_count_English +1;
+           % end
             end
         end
+        end
+
         if (detect_language ~= 0) & (detect_language ~= 1) & (detect_language ~= 2)
             detect_language = 3;
-            if detect_language == 3
-                total_count_unknown = total_count_unknown + 1;
-            end
+          %  if detect_language == 3
+          %      total_count_unknown = total_count_unknown + 1;
+          %  end
         end
+    end
+
+    function add_it_up
+        if detect_language== 0 
+           total_count_Spanish = total_count_Spanish +1;
+        end
+        if detect_language == 1 
+            total_count_French= total_count_French +1; 
+        end
+        if detect_language == 2
+               total_count_English = total_count_English +1;
+        end
+        if detect_language == 3
+                total_count_unknown = total_count_unknown + 1;
+        end     
     end
 
 %QUESTION 1
 fprintf(Q1,'s')
 user_answer = input(prompt, "s");
 language_testing()
+add_it_up()
 disp(detect_language)
 
 %QUESTION 2
@@ -166,6 +180,7 @@ end
 fprintf(Q2,'s');
 user_answer = input(prompt, "s");
 language_testing()
+add_it_up()
 disp(detect_language)
 
 %QUESTION 3
@@ -182,6 +197,7 @@ end
 fprintf(Q3,'s');
 user_answer = input(prompt, "s");
 language_testing()
+add_it_up()
 disp(detect_language)
 
 %QUESTION 4
@@ -198,6 +214,7 @@ end
 fprintf(Q4,'s');
 user_answer = input(prompt, "s");
 language_testing()
+add_it_up()
 disp(detect_language)
 
 %QUESTION 5
@@ -214,6 +231,7 @@ end
 fprintf(Q5,'s');
 user_answer = input(prompt, "s");
 language_testing()
+add_it_up()
 disp(detect_language)
 
 %QUESTION 6
@@ -230,6 +248,7 @@ end
 fprintf(Q6,'s');
 user_answer = input(prompt, "s");
 language_testing()
+add_it_up()
 disp(detect_language)
 
 %QUESTION 7
@@ -246,6 +265,7 @@ end
 fprintf(Q7,'s');
 user_answer = input(prompt, "s");
 language_testing()
+add_it_up()
 disp(detect_language)
 
 %QUESTION 8
@@ -262,6 +282,7 @@ end
 fprintf(Q8,'s');
 user_answer = input(prompt, "s");
 language_testing()
+add_it_up()
 disp(detect_language)
 
 %QUESTION 9
@@ -278,6 +299,7 @@ end
 fprintf(Q9,'s');
 user_answer = input(prompt, "s");
 language_testing()
+add_it_up()
 disp(detect_language)
 
 %QUESTION 10
@@ -294,6 +316,7 @@ end
 fprintf(Q10,'s');
 user_answer = input(prompt, "s");
 language_testing()
+add_it_up()
 disp(detect_language)
 
 disp(total_count_unknown)
