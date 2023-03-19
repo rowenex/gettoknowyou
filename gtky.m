@@ -92,15 +92,7 @@ prompt = ' ';
          total_count_French=0; 
          total_count_unknown=0;
 
-        
-%ideas for the code: we could create a function for finding spanish,
-%finding english, and finding french and use that to make the code much
-%shorter. Like put the strfind into a function and just call it, for example 
-% something like "if spanish_find = true"
-
-%contains(str,substr,IgnoreCase=true
-
-%Take user_answer (string) and read until there is a space (the first word) and compare that first string to every position in spanish_phrases until it finds a match. Do this with each word in user_answer 
+%the nested function that tests for the language
     function language_testing 
         for p = 1:length(spanish_phrases)
             if any(strfind(lower(user_answer), spanish_phrases(p))) || any(ismember(lower(user_answer), Spanish_letter_accents))
@@ -136,13 +128,12 @@ prompt = ' ';
         %end
     end
 
+%QUESTION 1
 fprintf(Q1,'s')
 user_answer = input(prompt, "s");
 language_testing()
 
-
-
-
+%QUESTION 2
 if detect_language == 0 
     Q2 = q2s;
 elseif detect_language ==1
@@ -157,7 +148,7 @@ fprintf(Q2,'s');
 user_answer = input(prompt, "s");
 language_testing()
 
-
+%QUESTION 3
 if detect_language == 0 
     Q3 = q3s;
 elseif detect_language ==1
@@ -172,7 +163,7 @@ fprintf(Q3,'s');
 user_answer = input(prompt, "s");
 language_testing()
 
-
+%QUESTION 4
 if detect_language == 0 
     Q4 = q4s;
 elseif detect_language ==1
@@ -187,8 +178,7 @@ fprintf(Q4,'s');
 user_answer = input(prompt, "s");
 language_testing()
 
-
-
+%QUESTION 5
 if detect_language == 0 
     Q5 = q5s;
 elseif detect_language ==1
@@ -203,8 +193,7 @@ fprintf(Q5,'s');
 user_answer = input(prompt, "s");
 language_testing()
 
-
-
+%QUESTION 6
 if detect_language == 0 
     Q6 = q6s;
 elseif detect_language ==1
@@ -219,7 +208,7 @@ fprintf(Q6,'s');
 user_answer = input(prompt, "s");
 language_testing()
 
-
+%QUESTION 7
 if detect_language == 0 
     Q7 = q7s;
 elseif detect_language ==1
@@ -234,7 +223,7 @@ fprintf(Q7,'s');
 user_answer = input(prompt, "s");
 language_testing()
 
-
+%QUESTION 8
 if detect_language == 0 
     Q8 = q8s;
 elseif detect_language ==1
@@ -249,7 +238,7 @@ fprintf(Q8,'s');
 user_answer = input(prompt, "s");
 language_testing()
 
-
+%QUESTION 9
 if detect_language == 0 
     Q9 = q9s;
 elseif detect_language ==1
@@ -264,7 +253,7 @@ fprintf(Q9,'s');
 user_answer = input(prompt, "s");
 language_testing()
 
-
+%QUESTION 10
 if detect_language == 0 
     Q10 = q10s;
 elseif detect_language ==1
@@ -299,6 +288,5 @@ language_testing()
         
         getting_to_know_you = majority_user_answer;
         disp(getting_to_know_you)
-       
         disp("It was great to get to know you!")
 end 
