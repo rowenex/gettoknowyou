@@ -1,8 +1,4 @@
-%answer --> input(prompt, s)
-%asking a question-->prompt('insert q here')
-
-%create a function so that the code can run "if-else" statements 
-function gtky %= detect_language(user_answer)
+function gtky 
 %Listed Variables; Accent marks + Grammar Unique to specific language(s)
 egrave = "è";
 eaigu = "é";
@@ -25,11 +21,10 @@ english_I_ns = "I ";
 french_ui = "ui";
 french_j = "j'";
 french_m = "m'";
-%detect_language = 2; set the default language to English
 Spanish_letter_accents= [eaigu, aaigu, uaigu, oaigu, ntilde, accented_i];
 English_indications = [english_the,english_I_space,english_I_ns];
 French_indicators = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j];
-
+detect_language = [];
 %Questions 
 Q1= 'What is your name?'; %begin in english no matter what
 
@@ -81,18 +76,19 @@ Q9 =[];
 Q10 =[];
 
 prompt = ' ';
-%Starting the "for loop" in order to run program for 10 questions ; %intialization condition; first Question presented 
 
-    
+ 
+% i think we need to make these more extensive: 
+
     spanish_phrases= ["yo ", "llamo", "soy", "estoy", "favorito","favorita", "mi", "es", "favorito", "favorita","gusta", "dia", "festivo", "superpoder", "comida","libros", "películas", "más", "prefiero", "voy", "genero","música"];
     french_phrases = ["les", "mon", "suis", "je"];
-    english_phrases_all = ["My","favorite", "name"," want ", " is ", "from"," it " "superpower", "holiday", "food","prefer","books","movie","like","coffee","music "]; %add favorite?
+    english_phrases_all = ["My","favorite", "name"," want ", " is ", "from"," it " "superpower", "holiday", "food","prefer","books","movie","like","coffee","music "];
          total_count_Spanish=0;
          total_count_English= 0; 
          total_count_French=0; 
          total_count_unknown=0;
-         
-detect_language = [];
+
+        
 %the nested function that tests for the language
     function language_testing 
         detect_language = 4; %initiate detect_language to not be any specific language (make 3 work)
