@@ -2,7 +2,7 @@
 %asking a question-->prompt('insert q here')
 
 %create a function so that the code can run "if-else" statements 
-function getting_to_know_you = gtky(user_answer)
+function getting_to_know_you = detect_language(user_answer)
 %Listed Variables; Accent marks + Grammar Unique to specific language(s)
 egrave = "è";
 eaigu = "é";
@@ -699,6 +699,7 @@ end
         
         getting_to_know_you = majority_user_answer;
         disp(getting_to_know_you)
+       
         disp("It was great to get to know you!")
 end 
 

@@ -5,4 +5,4 @@ disp("3. Please answer in full sentences, such as 'My favorite song is...'")
 
 file = gtky; 
 
-file(gtky)
+file.detect_language() 
