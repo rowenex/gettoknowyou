@@ -87,6 +87,8 @@ prompt = ' ';
          total_count_French=0; 
          total_count_unknown=0;
 
+ 
+
 %the nested function that tests for the language
     function language_testing 
         detect_language = 4; %initiate detect_language to not be any specific language (make 3 work)
@@ -95,32 +97,28 @@ prompt = ' ';
         %if they exceed one. If 1+ accent mark in a word (as indicated/noted) by 
         %the program then it has to be French!
 
-       % words_in_phrase= split(user_answer);
-        %num_of_accents= 0;
-        %for ff= 1:length(words_in_phrase)
-        %    num_of_accents= count(words_in_phrase(ff), all_accents);
-        %        if num_of_accents > 1
-        %            detect_language=1; 
-        %            break
-        %        end
-        %end 
-
+       words_in_phrase= split(user_answer);
+        num_of_accents= 0;
+        for ff= 1:length(words_in_phrase)
+            num_of_accents= count(words_in_phrase(ff), all_accents);
+                if num_of_accents > 1
+                    detect_language=1; 
+                    break
+                end
+        end 
+        
+        if detect_language ~= 1
          for p= 1:length(spanish_phrases) %new problem arising with spanish detection! 
              if any(strfind(lower(user_answer), spanish_phrases(p))) 
                  detect_language=0; 
-          %   if detect_language== 0 
-          %       total_count_Spanish = total_count_Spanish +1;
-          %   end
              end 
          end 
+        end
 
         if detect_language ~= 0
         for f = 1:length(french_phrases)
             if any(strfind(lower(user_answer), french_phrases(f)))
                 detect_language = 1;
-          %  if detect_language == 1 
-          %  total_count_French= total_count_French +1; 
-          %  end
             end
         end
         end
@@ -129,22 +127,16 @@ prompt = ' ';
         for e = 1:length(english_phrases_all)
             if any(strfind(lower(user_answer), english_phrases_all(e)))
                  detect_language = 2;
-           % if detect_language == 2
-           %    total_count_English = total_count_English +1;
-           % end
             end
         end
         end
 
         if (detect_language ~= 0) & (detect_language ~= 1) & (detect_language ~= 2)
             detect_language = 3;
-          %  if detect_language == 3
-          %      total_count_unknown = total_count_unknown + 1;
-          %  end
         end
     end
 
-    function add_it_up
+function add_it_up
         if detect_language== 0 
            total_count_Spanish = total_count_Spanish +1;
         end
@@ -157,7 +149,7 @@ prompt = ' ';
         if detect_language == 3
                 total_count_unknown = total_count_unknown + 1;
         end     
-    end
+end
 
 %QUESTION 1
 fprintf(Q1,'s')
