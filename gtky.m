@@ -24,14 +24,11 @@ french_m = "m'";
 french_c = "c'";
 english_Imm = "i'm";
 spanish_capital_es = "Es";
-%Spanish_letter_accents= [eaigu, aaigu, uaigu, oaigu, ntilde, accented_i];
-%English_indications = [english_the,english_I_space,english_I_ns];
-%French_indicators = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j];
 all_accents= [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j,eaigu, aaigu, uaigu, oaigu, ntilde, accented_i];
 detect_language = [];
 
 %Questions 
-Q1= 'What is your name?'; %begin in english no matter what
+Q1= 'What is your name?'; %Begin in english no matter what
 
     q2e = 'What is your favorite color?';
     q2s= '¿Cuál es tu color favorito?';
@@ -79,26 +76,22 @@ Q7 =[];
 Q8 =[];
 Q9 =[];
 Q10 =[];
-
 prompt = ' ';
 
     spanish_phrases= [ntilde, "yo ", "llamo", "soy ", "estoy", "favorito","favorita", "mi ", " es ", "favorito", "favorita","gusta", "dia ", "festivo", "superpoder", "comida","libros", "películas", "más", "prefiero", "voy ", "genero","música", "sí", "té"];
     french_phrases = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j, french_c, "préférée", "préféré", "les ", "mon ", "suis", "je", "favori ", "serait", "une ", "le ", "est ", "ces ", "ce "];
-    english_phrases_all = [english_Imm, english_the,english_I_space,english_I_ns, "my ","favorite", "name"," want ", " is ", "from"," it " "superpower", "holiday", "food","prefer","books","movie","like","coffee","music ", "love", "i'm ", " am ", "it's", "it is "];
+    english_phrases_all = [english_Imm, english_the,english_I_space,english_I_ns, "my ","favorite", "name"," want ", " is ", "from"," it " "superpower", "holiday", "food","prefer","books","movie","like","coffee","music ", "love", "i'm ", " am ", "it's", "it is ", "would"];
          total_count_Spanish=0;
          total_count_English= 0; 
          total_count_French=0; 
          total_count_unknown=0;
 
  
-%the nested function that tests for the language
+%The nested function that tests for the language
     function language_testing 
-        detect_language = 4; %initiate detect_language to not be any specific language (make 3 work)
+        detect_language = 4; %Initiate detect_language to not be any specific language in the code 
         
-        %To account for a word such as préférer; counts accent marks to see
-        %if they exceed one. If 1+ accent mark in a word (as indicated/noted) by 
-        %the program then it has to be French!
-
+       %Detects words such as préférer with multiple accent marks, which indicates French
        words_in_phrase= split(user_answer);
         num_of_accents= 0;
         for ff= 1:length(words_in_phrase)
@@ -108,7 +101,7 @@ prompt = ' ';
                     break
                 end
         end 
-
+%If not French, check for Spanish
         if detect_language ~= 1
          for p= 1:length(spanish_phrases)
              if any(strfind(lower(user_answer), spanish_phrases(p))) || any(strfind((user_answer), spanish_capital_es))
@@ -116,7 +109,8 @@ prompt = ' ';
              end 
          end 
         end
-
+%If not Spanish and the answer does not have words with multiple accents,
+%check again for French
         if detect_language ~= 0
         for f = 1:length(french_phrases)
             if any(strfind(lower(user_answer), french_phrases(f)))
@@ -124,7 +118,7 @@ prompt = ' ';
             end
         end
         end
-
+%If not Spanish or French, check for English
         if (detect_language ~= 0) & (detect_language ~= 1)
         for e = 1:length(english_phrases_all)
             if any(strfind(lower(user_answer), english_phrases_all(e)))
@@ -132,12 +126,14 @@ prompt = ' ';
             end
         end
         end
-
+%If none of the above, the language is undetected 
         if (detect_language ~= 0) & (detect_language ~= 1) & (detect_language ~= 2)
             detect_language = 3;
         end
     end
 
+%A nested function that counts the amount of answers that were in each
+%language 
 function add_it_up
         if detect_language== 0 
            total_count_Spanish = total_count_Spanish +1;
@@ -167,8 +163,6 @@ elseif detect_language ==1
     Q2 = q2f;
 elseif detect_language == 2 || detect_language ==3
     Q2 = q2e;
-else% look at the note on the line below
-    Q2 = q2e;  % these two lines are kind of inefficient? do we need to include if we already detect for an unspecified language already? 
 end
 
 fprintf(Q2,'s');
@@ -183,8 +177,6 @@ if detect_language == 0
 elseif detect_language ==1
     Q3 = q3f;
 elseif detect_language == 2 || detect_language ==3
-    Q3 = q3e;
-else %same note as Q2- presuming its the same for the rest of the Qs (through Q10) 
     Q3 = q3e;
 end
 
@@ -201,8 +193,6 @@ elseif detect_language ==1
     Q4 = q4f;
 elseif detect_language == 2 || detect_language ==3
     Q4 = q4e;
-else
-    Q4 = q4e;
 end
 
 fprintf(Q4,'s');
@@ -217,8 +207,6 @@ if detect_language == 0
 elseif detect_language ==1
     Q5 = q5f;
 elseif detect_language == 2 || detect_language ==3
-    Q5 = q5e;
-else
     Q5 = q5e;
 end
 
@@ -235,8 +223,6 @@ elseif detect_language ==1
     Q6 = q6f;
 elseif detect_language == 2 || detect_language ==3
     Q6 = q6e;
-else
-    Q6 = q6e;
 end
 
 fprintf(Q6,'s');
@@ -251,8 +237,6 @@ if detect_language == 0
 elseif detect_language ==1
     Q7 = q7f;
 elseif detect_language == 2 || detect_language ==3
-    Q7 = q7e;
-else
     Q7 = q7e;
 end
 
@@ -269,8 +253,6 @@ elseif detect_language ==1
     Q8 = q8f;
 elseif detect_language == 2 || detect_language ==3
     Q8 = q8e;
-else
-    Q8 = q8e;
 end
 
 fprintf(Q8,'s');
@@ -285,8 +267,6 @@ if detect_language == 0
 elseif detect_language ==1
     Q9 = q9f;
 elseif detect_language == 2 || detect_language ==3
-    Q9 = q9e;
-else
     Q9 = q9e;
 end
 
@@ -303,8 +283,6 @@ elseif detect_language ==1
     Q10 = q10f;
 elseif detect_language == 2 || detect_language ==3
     Q10 = q10e;
-else
-    Q10 = q10e;
 end
 
 fprintf(Q10,'s');
@@ -318,24 +296,23 @@ disp(total_count_French)
 disp(total_count_English)
 disp(total_count_Spanish)
 
- %end tally of languages here + display 
+ %Use the tally to figure out what the majority of languages used was
         if (total_count_Spanish > total_count_English) && (total_count_Spanish > total_count_French)
-            majority_user_answer = 'This user had the majority of their answers in Spanish.'; 
+            majority_user_answer = 'You had the majority of your answers in Spanish.'; 
         elseif (total_count_English > total_count_Spanish) && (total_count_English > total_count_French) 
-            majority_user_answer = 'This user had the majority of their answers in English.'; 
+            majority_user_answer = 'You had the majority of your answers in English.'; 
         elseif (total_count_French > total_count_Spanish) && (total_count_French > total_count_English)
-            majority_user_answer= 'This user had the majority of their answers in French.';
+            majority_user_answer= 'You had the majority of your answers in French.';
         elseif (total_count_Spanish == total_count_English) &&(total_count_Spanish > total_count_French)
-            majority_user_answer= 'This user had the majority of their answers tied between English and Spanish.' ;
+            majority_user_answer= 'You had the majority of your answers tied between English and Spanish.' ;
         elseif (total_count_Spanish == total_count_French) && (total_count_Spanish > total_count_English)
-            majority_user_answer= 'This user had the majority of their answers tied between French and Spanish.';
+            majority_user_answer= 'You had the majority of your answers tied between French and Spanish.';
         elseif (total_count_French == total_count_English) && (total_count_French > total_count_Spanish)
-            majority_user_answer= 'This user had the majority of their answers tied between English and French.';
+            majority_user_answer= 'You had the majority of your answers tied between English and French.';
         else
-            majority_user_answer= 'This user had the majority of their answers in an unspecified language for this program.';
+            majority_user_answer= 'You had the majority of your answers in an unspecified language for this program.';
         end 
         
-        getting_to_know_you = majority_user_answer;
-        disp(getting_to_know_you)
+        disp(majority_user_answer)
         disp("It was great to get to know you!")
 end 

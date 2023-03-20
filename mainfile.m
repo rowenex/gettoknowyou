@@ -5,8 +5,4 @@ disp("3. Please answer in full sentences, such as 'My favorite song is...'")
 disp("4. Be careful with typos, incorrect grammar, etc. as it may not detect your language!")
 disp("4. Have fun and learn more about yourself along the way!")
 
-%file = gtky; 
-
-%file(detect_language)
-
 gtky()
