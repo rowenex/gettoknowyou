@@ -134,7 +134,7 @@ prompt = ' ';
         end
     end
 
-[SPA1, SPA2] = imread('Spain.png');
+[SPA1, SPA2] = imread('Spain.png');% need to change this to Spanish flag, not french one!
 [FRA1, FRA2] = imread('France.png');
 [USA1, USA2] = imread('USA.png');
 [UNK1, UNK2] = imread('Unknown.png');
