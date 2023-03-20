@@ -86,6 +86,8 @@ prompt = ' ';
          total_count_French=0; 
          total_count_unknown=0;
 
+
+
  
 %The nested function that tests for the language
     function language_testing 
@@ -132,22 +134,34 @@ prompt = ' ';
         end
     end
 
+[SPA1, SPA2] = imread('France.png');
+[FRA1, FRA2] = imread('France.png');
+[USA1, USA2] = imread('USA.png');
+[UNK1, UNK2] = imread('Unknown.png');
+
 %A nested function that counts the amount of answers that were in each
-%language 
+%language and also displays language's flag
 function add_it_up
         if detect_language== 0 
            total_count_Spanish = total_count_Spanish +1;
+           imshow(SPA1, SPA2);
         end
         if detect_language == 1 
             total_count_French= total_count_French +1; 
+            imshow(FRA1, FRA2);
         end
         if detect_language == 2
-               total_count_English = total_count_English +1;
+           total_count_English = total_count_English +1;
+           imshow(USA1, USA2);
         end
         if detect_language == 3
                 total_count_unknown = total_count_unknown + 1;
+                imshow(UNK1, UNK2);
         end     
 end
+
+
+
 
 %QUESTION 1
 fprintf(Q1,'s')
