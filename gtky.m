@@ -82,7 +82,7 @@ prompt = ' ';
 
     spanish_phrases= [ntilde, "yo ", "llamo", "soy ", "estoy", "favorito","favorita", "mi ", " es ", "favorito", "favorita","gusta", "dia ", "festivo", "superpoder", "comida","libros", "películas", "más", "prefiero", "voy ", "genero","música", "sí", "té"];
     french_phrases = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j, french_c, "préférée", "préféré", "les ", "mon ", "suis", "je", "favori ", "serait", "une ", "le ", "est ", "ces ", "ce "];
-    english_phrases_all = [english_the,english_I_space,english_I_ns, "My ","favorite", "name"," want ", " is ", "from"," it " "superpower", "holiday", "food","prefer","books","movie","like","coffee","music ", "love"];
+    english_phrases_all = [english_the,english_I_space,english_I_ns, "My ","favorite", "name"," want ", " is ", "from"," it " "superpower", "holiday", "food","prefer","books","movie","like","coffee","music ", "love", "I'"];
          total_count_Spanish=0;
          total_count_English= 0; 
          total_count_French=0; 
