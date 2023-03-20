@@ -134,10 +134,16 @@ prompt = ' ';
         end
     end
 
-[SPA1, SPA2] = imread('Spain.png');% need to change this to Spanish flag, not french one!
+[SPA1, SPA2] = imread('Spain.png');
 [FRA1, FRA2] = imread('France.png');
 [USA1, USA2] = imread('USA.png');
 [UNK1, UNK2] = imread('Unknown.png');
+
+%User feedback by displaying each of the corresponding counts :)
+Eng= ['The current count for English answers: ', num2str(total_count_English)]; 
+Spa = ['The current count for Spanish answers: ', num2str(total_count_Spanish)];
+Fre = ['The current count for French answers: ', num2str(total_count_French)];
+Unk = ['The current count for unspecified language answers: ', num2str(total_count_unknown)];
 
 %A nested function that counts the amount of answers that were in each
 %language and also displays language's flag
@@ -145,14 +151,17 @@ function add_it_up
         if detect_language== 0 
            total_count_Spanish = total_count_Spanish +1;
            imshow(SPA1, SPA2) 
+           disp(Spa)
         end
         if detect_language == 1 
             total_count_French= total_count_French +1; 
             imshow(FRA1, FRA2);
+            disp(Fre)
         end
         if detect_language == 2
            total_count_English = total_count_English +1;
            imshow(USA1, USA2);
+           disp()
         end
         if detect_language == 3
                 total_count_unknown = total_count_unknown + 1;
@@ -161,7 +170,7 @@ function add_it_up
 end
 
 
-
+%Making the template for the user feedback on language count
 
 %QUESTION 1
 fprintf(Q1,'s')
@@ -169,6 +178,10 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 disp(detect_language)
+disp(Eng)
+disp(Fre)
+disp(Spa)
+disp(Unk)
 
 %QUESTION 2
 if detect_language == 0 
@@ -184,6 +197,12 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 disp(detect_language)
+disp(Eng)
+disp(Fre)
+disp(Spa)
+disp(Unk)
+
+
 
 %QUESTION 3
 if detect_language == 0 
@@ -199,6 +218,11 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 disp(detect_language)
+disp(Eng)
+disp(Fre)
+disp(Spa)
+disp(Unk)
+
 
 %QUESTION 4
 if detect_language == 0 
@@ -214,6 +238,10 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 disp(detect_language)
+disp(Eng)
+disp(Fre)
+disp(Spa)
+disp(Unk)
 
 %QUESTION 5
 if detect_language == 0 
@@ -229,6 +257,11 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 disp(detect_language)
+disp(Eng)
+disp(Fre)
+disp(Spa)
+disp(Unk)
+
 
 %QUESTION 6
 if detect_language == 0 
@@ -244,6 +277,11 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 disp(detect_language)
+disp(Eng)
+disp(Fre)
+disp(Spa)
+disp(Unk)
+
 
 %QUESTION 7
 if detect_language == 0 
@@ -274,6 +312,11 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 disp(detect_language)
+disp(Eng)
+disp(Fre)
+disp(Spa)
+disp(Unk)
+
 
 %QUESTION 9
 if detect_language == 0 
@@ -289,6 +332,11 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 disp(detect_language)
+disp(Eng)
+disp(Fre)
+disp(Spa)
+disp(Unk)
+
 
 %QUESTION 10
 if detect_language == 0 
@@ -304,7 +352,15 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 disp(detect_language)
+disp(Eng)
+disp(Fre)
+disp(Spa)
+disp(Unk)
 
+
+
+%do we really need this next part anymore? If feedback is given the whole
+%user experience then don't really see the need to "re" show this
 disp(total_count_unknown)
 disp(total_count_French)
 disp(total_count_English)

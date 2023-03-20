@@ -142,26 +142,35 @@ prompt = ' ';
 %A nested function that counts the amount of answers that were in each
 %language and also displays language's flag
 function add_it_up
+        Spa = ['The current count for Spanish answers: ', num2str(total_count_Spanish +1)];
         if detect_language== 0 
            total_count_Spanish = total_count_Spanish +1;
-           imshow(SPA1, SPA2) 
+           imshow(SPA1, SPA2)
+           disp(Spa)
         end
+
+        Fre = ['The current count for French answers: ', num2str(total_count_French+1)];
         if detect_language == 1 
             total_count_French= total_count_French +1; 
+            disp(Fre)
             imshow(FRA1, FRA2);
         end
+        Eng= ['The current count for English answers: ', num2str(total_count_English+1)];
         if detect_language == 2
            total_count_English = total_count_English +1;
+           disp(Eng)
            imshow(USA1, USA2);
         end
+        Unk = ['The current count for unspecified language answers: ', num2str(total_count_unknown+1)];
         if detect_language == 3
                 total_count_unknown = total_count_unknown + 1;
+                disp(Unk)
                 imshow(UNK1, UNK2);
         end     
 end
 
 
-
+%Making the template for the user feedback on language count
 
 %QUESTION 1
 fprintf(Q1,'s')
@@ -169,6 +178,7 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 disp(detect_language)
+
 
 %QUESTION 2
 if detect_language == 0 
@@ -185,6 +195,8 @@ language_testing()
 add_it_up()
 disp(detect_language)
 
+
+
 %QUESTION 3
 if detect_language == 0 
     Q3 = q3s;
@@ -199,6 +211,8 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 disp(detect_language)
+
+
 
 %QUESTION 4
 if detect_language == 0 
@@ -215,6 +229,7 @@ language_testing()
 add_it_up()
 disp(detect_language)
 
+
 %QUESTION 5
 if detect_language == 0 
     Q5 = q5s;
@@ -229,6 +244,8 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 disp(detect_language)
+
+
 
 %QUESTION 6
 if detect_language == 0 
@@ -275,6 +292,8 @@ language_testing()
 add_it_up()
 disp(detect_language)
 
+
+
 %QUESTION 9
 if detect_language == 0 
     Q9 = q9s;
@@ -289,6 +308,7 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 disp(detect_language)
+
 
 %QUESTION 10
 if detect_language == 0 
