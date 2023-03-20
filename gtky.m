@@ -23,6 +23,7 @@ french_j = "j'";
 french_m = "m'";
 french_c = "c'";
 english_Imm = "i'm";
+spanish_capital_es = "Es";
 %Spanish_letter_accents= [eaigu, aaigu, uaigu, oaigu, ntilde, accented_i];
 %English_indications = [english_the,english_I_space,english_I_ns];
 %French_indicators = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j];
@@ -83,7 +84,7 @@ prompt = ' ';
 
     spanish_phrases= [ntilde, "yo ", "llamo", "soy ", "estoy", "favorito","favorita", "mi ", " es ", "favorito", "favorita","gusta", "dia ", "festivo", "superpoder", "comida","libros", "películas", "más", "prefiero", "voy ", "genero","música", "sí", "té"];
     french_phrases = [egrave, ecircumflex, agrave, acircumflex, ugrave, ucircumflex, cedilla, ocircumflex, icircumflex, french_ui, french_m, french_j, french_c, "préférée", "préféré", "les ", "mon ", "suis", "je", "favori ", "serait", "une ", "le ", "est ", "ces ", "ce "];
-    english_phrases_all = [english_Imm, english_the,english_I_space,english_I_ns, "my ","favorite", "name"," want ", " is ", "from"," it " "superpower", "holiday", "food","prefer","books","movie","like","coffee","music ", "love", "i'm "];
+    english_phrases_all = [english_Imm, english_the,english_I_space,english_I_ns, "my ","favorite", "name"," want ", " is ", "from"," it " "superpower", "holiday", "food","prefer","books","movie","like","coffee","music ", "love", "i'm ", " am ", "it's", "it is "];
          total_count_Spanish=0;
          total_count_English= 0; 
          total_count_French=0; 
@@ -109,8 +110,8 @@ prompt = ' ';
         end 
 
         if detect_language ~= 1
-         for p= 1:length(spanish_phrases) %new problem arising with spanish detection! 
-             if any(strfind(lower(user_answer), spanish_phrases(p))) %|| something about spanish words with one accent ... 
+         for p= 1:length(spanish_phrases)
+             if any(strfind(lower(user_answer), spanish_phrases(p))) || any(strfind((user_answer), spanish_capital_es))
                  detect_language=0; 
              end 
          end 
