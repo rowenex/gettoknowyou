@@ -86,7 +86,15 @@ prompt = ' ';
          total_count_French=0; 
          total_count_unknown=0;
 
+ 
+% introducing audiofiles + assigning them variable names. 
 
+[y,Fs]= audioread('Hi!.m4a'); 
+English_greeting= audioplayer(y,Fs); 
+[Z, Gs]= audioread('¡Hola!.m4a'); 
+Spanish_greeting= audioplayer(Z,Gs); 
+[X, Hs]= audioread('Bonjour.m4a'); 
+French_greeting= audioplayer(X, Hs); 
 
  
 %The nested function that tests for the language
@@ -140,32 +148,37 @@ prompt = ' ';
 [UNK1, UNK2] = imread('Unknown.png');
 
 %A nested function that counts the amount of answers that were in each
-%language and also displays language's flag
+%language and also displays language's flag, the current count for the
+%language input and an audio that greets you in the language you input to
+%the last answer
 function add_it_up
         Spa = ['The current count for Spanish answers: ', num2str(total_count_Spanish +1)];
         if detect_language== 0 
            total_count_Spanish = total_count_Spanish +1;
            imshow(SPA1, SPA2)
            disp(Spa)
+           play(Spanish_greeting)
         end
 
         Fre = ['The current count for French answers: ', num2str(total_count_French+1)];
         if detect_language == 1 
             total_count_French= total_count_French +1; 
             disp(Fre)
-            imshow(FRA1, FRA2);
+            play(French_greeting)
+            imshow(FRA1, FRA2)
         end
         Eng= ['The current count for English answers: ', num2str(total_count_English+1)];
         if detect_language == 2
            total_count_English = total_count_English +1;
            disp(Eng)
-           imshow(USA1, USA2);
+           play(English_greeting)
+           imshow(USA1, USA2)
         end
         Unk = ['The current count for unspecified language answers: ', num2str(total_count_unknown+1)];
         if detect_language == 3
                 total_count_unknown = total_count_unknown + 1;
                 disp(Unk)
-                imshow(UNK1, UNK2);
+                imshow(UNK1, UNK2)
         end     
 end
 
