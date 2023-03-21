@@ -457,6 +457,8 @@ if strcmp(finalanswer, 'Yes')
     end
 elseif strcmp(finalanswer, 'No')
     disp("Okay, thank you for playing!")
+else
+    disp("Bye! Thank you for playing!")
 end
          
 end 
