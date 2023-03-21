@@ -139,32 +139,32 @@ prompt = ' ';
 [USA1, USA2] = imread('USA.png');
 [UNK1, UNK2] = imread('Unknown.png');
 
-%User feedback by displaying each of the corresponding counts :)
-Eng= ['The current count for English answers: ', num2str(total_count_English)]; 
-Spa = ['The current count for Spanish answers: ', num2str(total_count_Spanish)];
-Fre = ['The current count for French answers: ', num2str(total_count_French)];
-Unk = ['The current count for unspecified language answers: ', num2str(total_count_unknown)];
-
 %A nested function that counts the amount of answers that were in each
 %language and also displays language's flag
 function add_it_up
+        Spa = ['The current count for Spanish answers: ', num2str(total_count_Spanish +1)];
         if detect_language== 0 
            total_count_Spanish = total_count_Spanish +1;
-           imshow(SPA1, SPA2) 
+           imshow(SPA1, SPA2)
            disp(Spa)
         end
+
+        Fre = ['The current count for French answers: ', num2str(total_count_French+1)];
         if detect_language == 1 
             total_count_French= total_count_French +1; 
-            imshow(FRA1, FRA2);
             disp(Fre)
+            imshow(FRA1, FRA2);
         end
+        Eng= ['The current count for English answers: ', num2str(total_count_English+1)];
         if detect_language == 2
            total_count_English = total_count_English +1;
+           disp(Eng)
            imshow(USA1, USA2);
-           disp()
         end
+        Unk = ['The current count for unspecified language answers: ', num2str(total_count_unknown+1)];
         if detect_language == 3
                 total_count_unknown = total_count_unknown + 1;
+                disp(Unk)
                 imshow(UNK1, UNK2);
         end     
 end
@@ -177,11 +177,7 @@ fprintf(Q1,'s')
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
-disp(Eng)
-disp(Fre)
-disp(Spa)
-disp(Unk)
+useranswer1 = user_answer;
 
 %QUESTION 2
 if detect_language == 0 
@@ -192,16 +188,12 @@ elseif detect_language == 2 || detect_language ==3
     Q2 = q2e;
 end
 
+disp(" ")
 fprintf(Q2,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
-disp(Eng)
-disp(Fre)
-disp(Spa)
-disp(Unk)
-
+useranswer2 = user_answer;
 
 
 %QUESTION 3
@@ -213,15 +205,11 @@ elseif detect_language == 2 || detect_language ==3
     Q3 = q3e;
 end
 
+disp(" ")
 fprintf(Q3,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
-disp(Eng)
-disp(Fre)
-disp(Spa)
-disp(Unk)
 
 
 %QUESTION 4
@@ -233,15 +221,12 @@ elseif detect_language == 2 || detect_language ==3
     Q4 = q4e;
 end
 
+disp(" ")
 fprintf(Q4,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
-disp(Eng)
-disp(Fre)
-disp(Spa)
-disp(Unk)
+
 
 %QUESTION 5
 if detect_language == 0 
@@ -252,15 +237,12 @@ elseif detect_language == 2 || detect_language ==3
     Q5 = q5e;
 end
 
+disp(" ")
 fprintf(Q5,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
-disp(Eng)
-disp(Fre)
-disp(Spa)
-disp(Unk)
+
 
 
 %QUESTION 6
@@ -272,15 +254,11 @@ elseif detect_language == 2 || detect_language ==3
     Q6 = q6e;
 end
 
+disp(" ")
 fprintf(Q6,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
-disp(Eng)
-disp(Fre)
-disp(Spa)
-disp(Unk)
 
 
 %QUESTION 7
@@ -292,11 +270,12 @@ elseif detect_language == 2 || detect_language ==3
     Q7 = q7e;
 end
 
+disp(" ")
 fprintf(Q7,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
+
 
 %QUESTION 8
 if detect_language == 0 
@@ -307,15 +286,12 @@ elseif detect_language == 2 || detect_language ==3
     Q8 = q8e;
 end
 
+disp(" ")
 fprintf(Q8,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
-disp(Eng)
-disp(Fre)
-disp(Spa)
-disp(Unk)
+
 
 
 %QUESTION 9
@@ -327,15 +303,11 @@ elseif detect_language == 2 || detect_language ==3
     Q9 = q9e;
 end
 
+disp(" ")
 fprintf(Q9,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
-disp(Eng)
-disp(Fre)
-disp(Spa)
-disp(Unk)
 
 
 %QUESTION 10
@@ -347,24 +319,12 @@ elseif detect_language == 2 || detect_language ==3
     Q10 = q10e;
 end
 
+disp(" ")
 fprintf(Q10,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
-disp(Eng)
-disp(Fre)
-disp(Spa)
-disp(Unk)
-
-
-
-%do we really need this next part anymore? If feedback is given the whole
-%user experience then don't really see the need to "re" show this
-disp(total_count_unknown)
-disp(total_count_French)
-disp(total_count_English)
-disp(total_count_Spanish)
+disp(" ")
 
  %Use the tally to figure out what the majority of languages used was
         if (total_count_Spanish > total_count_English) && (total_count_Spanish > total_count_French)
@@ -384,5 +344,18 @@ disp(total_count_Spanish)
         end 
         
         disp(majority_user_answer)
+        disp(" ")
         disp("It was great to get to know you!")
+        disp(" ")
+finalanswer = questdlg("Would you like to see your answers for a summary?", "Final Wrap Up!", "Yes","No","Yes");
+
+if strcmp(finalanswer, 'Yes')
+    disp("YOUR NAME: " + useranswer1)
+    disp("YOUR FAVORITE COLOR: " + useranswer2)
+    disp("")
+elseif strcmp(finalanswer, 'No')
+    disp("Okay, thank your for playing!")
+end
+       %disp("Would you like to see your answers for a summary? Y/N")
+        
 end 

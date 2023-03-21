@@ -177,8 +177,7 @@ fprintf(Q1,'s')
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
-
+useranswer1 = user_answer;
 
 %QUESTION 2
 if detect_language == 0 
@@ -189,12 +188,12 @@ elseif detect_language == 2 || detect_language ==3
     Q2 = q2e;
 end
 
+disp(" ")
 fprintf(Q2,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
-
+useranswer2 = user_answer;
 
 
 %QUESTION 3
@@ -206,13 +205,12 @@ elseif detect_language == 2 || detect_language ==3
     Q3 = q3e;
 end
 
+disp(" ")
 fprintf(Q3,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
-
-
+useranswer3 = user_answer;
 
 %QUESTION 4
 if detect_language == 0 
@@ -223,12 +221,12 @@ elseif detect_language == 2 || detect_language ==3
     Q4 = q4e;
 end
 
+disp(" ")
 fprintf(Q4,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
-
+useranswer4 = user_answer;
 
 %QUESTION 5
 if detect_language == 0 
@@ -239,12 +237,12 @@ elseif detect_language == 2 || detect_language ==3
     Q5 = q5e;
 end
 
+disp(" ")
 fprintf(Q5,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
-
+useranswer5 = user_answer;
 
 
 %QUESTION 6
@@ -256,11 +254,13 @@ elseif detect_language == 2 || detect_language ==3
     Q6 = q6e;
 end
 
+disp(" ")
 fprintf(Q6,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
+useranswer6 = user_answer;
+
 
 %QUESTION 7
 if detect_language == 0 
@@ -271,11 +271,12 @@ elseif detect_language == 2 || detect_language ==3
     Q7 = q7e;
 end
 
+disp(" ")
 fprintf(Q7,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
+useranswer7 = user_answer;
 
 %QUESTION 8
 if detect_language == 0 
@@ -286,11 +287,12 @@ elseif detect_language == 2 || detect_language ==3
     Q8 = q8e;
 end
 
+disp(" ")
 fprintf(Q8,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
+useranswer8 = user_answer;
 
 
 
@@ -303,11 +305,12 @@ elseif detect_language == 2 || detect_language ==3
     Q9 = q9e;
 end
 
+disp(" ")
 fprintf(Q9,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
+useranswer9 = user_answer;
 
 
 %QUESTION 10
@@ -319,16 +322,13 @@ elseif detect_language == 2 || detect_language ==3
     Q10 = q10e;
 end
 
+disp(" ")
 fprintf(Q10,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-disp(detect_language)
-
-disp(total_count_unknown)
-disp(total_count_French)
-disp(total_count_English)
-disp(total_count_Spanish)
+disp(" ")
+useranswer10 = user_answer;
 
  %Use the tally to figure out what the majority of languages used was
         if (total_count_Spanish > total_count_English) && (total_count_Spanish > total_count_French)
@@ -348,5 +348,24 @@ disp(total_count_Spanish)
         end 
         
         disp(majority_user_answer)
+        disp(" ")
         disp("It was great to get to know you!")
+        disp(" ")
+finalanswer = questdlg("Would you like to see your answers for a summary?", "Final Wrap Up!", "Yes","No","Yes");
+
+if strcmp(finalanswer, 'Yes')
+    disp("YOUR NAME: " + useranswer1)
+    disp("YOUR FAVORITE COLOR: " + useranswer2)
+    disp("WHERE YOU LIVE: "+ useranswer3)
+    disp("YOUR FAVORITE HOLIDAY: " + useranswer4)
+    disp("YOUR FUTURE SUPERPOWER: " + useranswer5)
+    disp("YOUR FAVORITE ANIMAL: " + useranswer6)
+    disp("YOUR FAVORITE FOOD: " + useranswer7)
+    disp("MOVIES VS BOOKS: " + useranswer8)
+    disp("COFFEE VS TEA AND YOUR FAVORITE BEVERAGE SHOP: " + useranswer9)
+    disp("YOUR FAVORITE MUSIC GENRE: " + useranswer10)
+elseif strcmp(finalanswer, 'No')
+    disp("Okay, thank your for playing!")
+end
+         
 end 
