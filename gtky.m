@@ -390,7 +390,7 @@ if strcmp(finalanswer, 'Yes')
     if userlanguage2 == 0
         disp("TU COLOR FAVORITO: " + useranswer2)
     elseif userlanguage2 == 1
-        disp("TA COULEUR PRÉFÉRÉE: " + useranswer2)
+        disp("VOTRE COULEUR PRÉFÉRÉE: " + useranswer2)
     elseif userlanguage2 == 2
         disp("YOUR FAVORITE COLOR: " + useranswer2)
     else
@@ -399,7 +399,7 @@ if strcmp(finalanswer, 'Yes')
     if userlanguage3 == 0
         disp("DE DÓNDE ERES: " + useranswer3)
     elseif userlanguage3 == 1
-        disp("D'OÙ VIENS-TU: " + useranswer3)
+        disp("D'OÙ VENEZ-VOUS: " + useranswer3)
     elseif userlanguage3 == 2
         disp("WHERE YOU ARE FROM: " + useranswer3)
     else
@@ -435,7 +435,7 @@ if strcmp(finalanswer, 'Yes')
     if userlanguage7 == 0
         disp("TU COMIDA FAVORITA: " + useranswer7)
     elseif userlanguage7 == 1
-        disp("TA NOURRITURE PRÉFÉRÉE: " + useranswer7)
+        disp("VOTRE NOURRITURE PRÉFÉRÉE: " + useranswer7)
     elseif userlanguage7 == 2
         disp("YOUR FAVORITE FOOD: " + useranswer7)
     else
