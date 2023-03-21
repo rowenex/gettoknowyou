@@ -178,6 +178,8 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 useranswer1 = user_answer;
+userlanguage1 = detect_language;
+
 
 %QUESTION 2
 if detect_language == 0 
@@ -194,6 +196,7 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 useranswer2 = user_answer;
+userlanguage2 = detect_language;
 
 
 %QUESTION 3
@@ -211,6 +214,7 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 useranswer3 = user_answer;
+userlanguage3 = detect_language;
 
 %QUESTION 4
 if detect_language == 0 
@@ -227,6 +231,7 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 useranswer4 = user_answer;
+userlanguage4 = detect_language;
 
 %QUESTION 5
 if detect_language == 0 
@@ -243,6 +248,7 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 useranswer5 = user_answer;
+userlanguage5 = detect_language;
 
 
 %QUESTION 6
@@ -260,6 +266,7 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 useranswer6 = user_answer;
+userlanguage6 = detect_language;
 
 
 %QUESTION 7
@@ -277,6 +284,7 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 useranswer7 = user_answer;
+userlanguage7 = detect_language;
 
 %QUESTION 8
 if detect_language == 0 
@@ -293,6 +301,7 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 useranswer8 = user_answer;
+userlanguage8 = detect_language;
 
 
 
@@ -311,6 +320,7 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 useranswer9 = user_answer;
+userlanguage9 = detect_language;
 
 
 %QUESTION 10
@@ -329,6 +339,7 @@ language_testing()
 add_it_up()
 disp(" ")
 useranswer10 = user_answer;
+userlanguage10 = detect_language;
 
  %Use the tally to figure out what the majority of languages used was
         if (total_count_Spanish > total_count_English) && (total_count_Spanish > total_count_French)
@@ -354,18 +365,98 @@ useranswer10 = user_answer;
 finalanswer = questdlg("Would you like to see your answers for a summary?", "Final Wrap Up!", "Yes","No","Yes");
 
 if strcmp(finalanswer, 'Yes')
-    disp("YOUR NAME: " + useranswer1)
-    disp("YOUR FAVORITE COLOR: " + useranswer2)
-    disp("WHERE YOU LIVE: "+ useranswer3)
-    disp("YOUR FAVORITE HOLIDAY: " + useranswer4)
-    disp("YOUR FUTURE SUPERPOWER: " + useranswer5)
-    disp("YOUR FAVORITE ANIMAL: " + useranswer6)
-    disp("YOUR FAVORITE FOOD: " + useranswer7)
-    disp("MOVIES VS BOOKS: " + useranswer8)
-    disp("COFFEE VS TEA AND YOUR FAVORITE BEVERAGE SHOP: " + useranswer9)
-    disp("YOUR FAVORITE MUSIC GENRE: " + useranswer10)
+    if userlanguage1 == 0
+        disp("SU NOMBRE: " + useranswer1)
+    elseif userlanguage1 == 1
+        disp("VOTRE NOM: " + useranswer1)
+    elseif userlanguage1 == 2
+        disp("YOUR NAME: " + useranswer1)
+    else
+        disp("YOUR NAME: " + useranswer1)
+    end
+    if userlanguage2 == 0
+        disp("TU COLOR FAVORITO: " + useranswer2)
+    elseif userlanguage2 == 1
+        disp("TA COULEUR PRÉFÉRÉE: " + useranswer2)
+    elseif userlanguage2 == 2
+        disp("YOUR FAVORITE COLOR: " + useranswer2)
+    else
+        disp("YOUR FAVORITE COLOR: " + useranswer2)
+    end
+    if userlanguage3 == 0
+        disp("DE DÓNDE ERES: " + useranswer3)
+    elseif userlanguage3 == 1
+        disp("D'OÙ VIENS-TU: " + useranswer3)
+    elseif userlanguage3 == 2
+        disp("WHERE YOU ARE FROM: " + useranswer3)
+    else
+        disp("WHERE YOU ARE FROM: " + useranswer3)
+    end
+    if userlanguage4 == 0
+        disp("TU DÍA FESTIVO FAVORITA: " + useranswer4)
+    elseif userlanguage4 == 1
+        disp("VOTRE FÊTE PRÉFÉRÉES: " + useranswer4)
+    elseif userlanguage4 == 2
+        disp("YOUR FAVORITE HOLIDAY: " + useranswer4)
+    else
+        disp("YOUR FAVORITE HOLIDAY: " + useranswer4)
+    end
+    if userlanguage5 == 0
+        disp("TU FUTURA SUPERPODER: " + useranswer5)
+    elseif userlanguage5 == 1
+        disp("VOTRE FUTUR SUPERPOUVOIR: " + useranswer5)
+    elseif userlanguage5 == 2
+        disp("YOUR FUTURE SUPERPOWER: " + useranswer5)
+    else
+        disp("YOUR FUTURE SUPERPOWER: " + useranswer5)
+    end
+    if userlanguage6 == 0
+        disp("TU ANIMAL FAVORITO: " + useranswer6)
+    elseif userlanguage6 == 1
+        disp("VOTRE ANIMAL PRÉFÉRÉ: " + useranswer6)
+    elseif userlanguage6 == 2
+        disp("YOUR FAVORITE ANIMAL: " + useranswer6)
+    else
+        disp("YOUR FAVORITE ANIMAL: " + useranswer6)
+    end
+    if userlanguage7 == 0
+        disp("TU COMIDA FAVORITA: " + useranswer7)
+    elseif userlanguage7 == 1
+        disp("TA NOURRITURE PRÉFÉRÉE: " + useranswer7)
+    elseif userlanguage7 == 2
+        disp("YOUR FAVORITE FOOD: " + useranswer7)
+    else
+        disp("YOUR FAVORITE FOOD: " + useranswer7)
+    end
+    if userlanguage8 == 0
+        disp("PELÍCULAS VS LIBROS: " + useranswer8)
+    elseif userlanguage8 == 1
+        disp("FILMS VS LIVRES: " + useranswer8)
+    elseif userlanguage8 == 2
+        disp("MOVIES VS BOOKS: " + useranswer8)
+    else
+        disp("MOVIES VS BOOKS: " + useranswer8)
+    end
+    if userlanguage9 == 0
+        disp("CAFÉ VS TÉ Y TU TIENDA DE BEBIDAS FAVORITA: " + useranswer9)
+    elseif userlanguage9 == 1
+        disp("CAFÉ VS THÉ ET VOTRE MAGASIN DE BOISSONS PRÉFÉRÉES: " + useranswer9)
+    elseif userlanguage9 == 2
+        disp("COFFEE VS TEA AND YOUR FAVORITE BEVERAGE SHOP: " + useranswer9)
+    else
+        disp("COFFEE VS TEA AND YOUR FAVORITE BEVERAGE SHOP: " + useranswer9)
+    end
+    if userlanguage10 == 0
+        disp("TU GÉNERO DE MÚSICA FAVORITO: " + useranswer10)
+    elseif userlanguage10 == 1
+        disp("VOTRE GENRE DE MUSIQUE PRÉFÉRÉ: " + useranswer10)
+    elseif userlanguage10 == 2
+        disp("YOUR FAVORITE MUSIC GENRE: " + useranswer10)
+    else
+        disp("YOUR FAVORITE MUSIC GENRE: " + useranswer10)
+    end
 elseif strcmp(finalanswer, 'No')
-    disp("Okay, thank your for playing!")
+    disp("Okay, thank you for playing!")
 end
          
 end 

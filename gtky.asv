@@ -178,6 +178,8 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 useranswer1 = user_answer;
+userlanguage1 = detect_language;
+
 
 %QUESTION 2
 if detect_language == 0 
@@ -194,6 +196,7 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 useranswer2 = user_answer;
+userlanguage2 = detect_language;
 
 
 %QUESTION 3
@@ -210,7 +213,8 @@ fprintf(Q3,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-
+useranswer3 = user_answer;
+userlanguage3 = detect_language;
 
 %QUESTION 4
 if detect_language == 0 
@@ -226,7 +230,8 @@ fprintf(Q4,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-
+useranswer4 = user_answer;
+userlanguage4 = detect_language;
 
 %QUESTION 5
 if detect_language == 0 
@@ -242,7 +247,8 @@ fprintf(Q5,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-
+useranswer5 = user_answer;
+userlanguage5 = detect_language;
 
 
 %QUESTION 6
@@ -259,6 +265,8 @@ fprintf(Q6,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
+useranswer6 = user_answer;
+userlanguage6 = detect_language;
 
 
 %QUESTION 7
@@ -275,7 +283,8 @@ fprintf(Q7,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
-
+useranswer7 = user_answer;
+userlanguage7 = detect_language;
 
 %QUESTION 8
 if detect_language == 0 
@@ -291,6 +300,8 @@ fprintf(Q8,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
+useranswer8 = user_answer;
+userlanguage8 = detect_language;
 
 
 
@@ -308,6 +319,8 @@ fprintf(Q9,'s');
 user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
+useranswer9 = user_answer;
+userlanguage9 = detect_language;
 
 
 %QUESTION 10
@@ -325,6 +338,8 @@ user_answer = input(prompt, "s");
 language_testing()
 add_it_up()
 disp(" ")
+useranswer10 = user_answer;
+userlanguage10 = detect_language;
 
  %Use the tally to figure out what the majority of languages used was
         if (total_count_Spanish > total_count_English) && (total_count_Spanish > total_count_French)
@@ -350,12 +365,63 @@ disp(" ")
 finalanswer = questdlg("Would you like to see your answers for a summary?", "Final Wrap Up!", "Yes","No","Yes");
 
 if strcmp(finalanswer, 'Yes')
-    disp("YOUR NAME: " + useranswer1)
-    disp("YOUR FAVORITE COLOR: " + useranswer2)
-    disp("")
+    if userlanguage1 == 0
+        disp("SU NOMBRE: " + useranswer1)
+    elseif userlanguage1 == 1
+        disp("VOTRE NOM: " + useranswer1)
+    elseif userlanguage1 == 2
+        disp("YOUR NAME: " + useranswer1)
+    else
+        disp("YOUR NAME: " + useranswer1)
+    end
+    if userlanguage2 == 0
+        disp("TU COLOR FAVORITO: " + useranswer2)
+    elseif userlanguage2 == 1
+        disp("TA COULEUR PRÉFÉRÉE: " + useranswer2)
+    elseif userlanguage2 == 2
+        disp("YOUR FAVORITE COLOR: " + useranswer2)
+    else
+        disp("YOUR FAVORITE COLOR: " + useranswer2)
+    end
+    if userlanguage3 == 0
+        disp("DE DÓNDE ERES: " + useranswer3)
+    elseif userlanguage3 == 1
+        disp("D'OÙ VIENS-TU: " + useranswer3)
+    elseif userlanguage3 == 2
+        disp("WHERE YOU ARE FROM: " + useranswer3)
+    else
+        disp("WHERE YOU ARE FROM: " + useranswer3)
+    end
+    if userlanguage4 == 0
+        disp("TU DÍA FESTIVO FAVORITA: " + useranswer4)
+    elseif userlanguage4 == 1
+        votre fête
+        disp("VOTRE FE PRÉFÉRÉES: " + useranswer4)
+    elseif userlanguage4 == 2
+        disp("YOUR FAVORITE HOLIDAY: " + useranswer4)
+    else
+        disp("YOUR FAVORITE HOLIDAY: " + useranswer4)
+    end
+    if userlanguage4 == 0
+        disp("TUS VACACIONES FAVORITAS: " + useranswer4)
+    elseif userlanguage4 == 1
+        disp("VOS VACANCES PRÉFÉRÉES: " + useranswer4)
+    elseif userlanguage4 == 2
+        disp("YOUR FAVORITE HOLIDAY: " + useranswer4)
+    else
+        disp("YOUR FAVORITE HOLIDAY: " + useranswer4)
+    end
+   
+    
+    disp("YOUR FAVORITE HOLIDAY: " + useranswer4)
+    disp("YOUR FUTURE SUPERPOWER: " + useranswer5)
+    disp("YOUR FAVORITE ANIMAL: " + useranswer6)
+    disp("YOUR FAVORITE FOOD: " + useranswer7)
+    disp("MOVIES VS BOOKS: " + useranswer8)
+    disp("COFFEE VS TEA AND YOUR FAVORITE BEVERAGE SHOP: " + useranswer9)
+    disp("YOUR FAVORITE MUSIC GENRE: " + useranswer10)
 elseif strcmp(finalanswer, 'No')
     disp("Okay, thank your for playing!")
 end
-       %disp("Would you like to see your answers for a summary? Y/N")
-        
+         
 end 
